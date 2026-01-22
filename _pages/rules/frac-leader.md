@@ -7,8 +7,7 @@ permalink: /rules/frac-leader/
 
 <div class="rules">
     <div class="section">
-        <h2>Rodina RP | Правила Лидеров и Заместителей</h2>
-        <p>В данной теме указаны Правила для Лидеров и Заместителей гос. организаций !</p>
+        <h2>Правила Лидеров и Заместителей</h2>
         
         <div class="subsection">
             <h3>1. Общее положения.</h3>
@@ -195,7 +194,6 @@ permalink: /rules/frac-leader/
             <p>6.1 Нарушение иерархии карается от выговора до снятия с поста лидера/заместителя фракции! (На усмотрение Главного следящего)</p>
             
             <div id="hierarchy-container" style="position: relative; height: 400px; width: 100%; background: rgba(26, 10, 10, 0.3); border-radius: 8px; padding: 20px; margin-top: 20px;">
-                <!-- Верхний уровень -->
                 <div class="hierarchy-top" style="display: flex; justify-content: center; gap: 100px; margin-bottom: 120px;">
                     <div id="prosecutor" class="hierarchy-box" style="padding: 15px 25px; background: rgba(139, 0, 0, 0.4); border: 2px solid #8b0000; border-radius: 6px; font-weight: bold; text-align: center;">
                         ПРОКУРАТУРА
@@ -205,7 +203,6 @@ permalink: /rules/frac-leader/
                     </div>
                 </div>
                 
-                <!-- Нижний уровень -->
                 <div class="hierarchy-bottom" style="display: flex; justify-content: space-around;">
                     <div id="mvd" class="hierarchy-box" style="padding: 15px 20px; background: rgba(139, 0, 0, 0.25); border: 1px solid #8b0000; border-radius: 6px; font-weight: bold; text-align: center;">
                         МВД
@@ -240,76 +237,106 @@ document.addEventListener('DOMContentLoaded', function() {
         drawArrows();
     }
     
-    function getElementCenter(elementId) {
+    function getEdgePoint(elementId, fromEdge, toEdge) {
         const el = document.getElementById(elementId);
         if (!el) return {x: 0, y: 0};
         
         const rect = el.getBoundingClientRect();
         const containerRect = container.getBoundingClientRect();
         
-        return {
-            x: rect.left + rect.width / 2 - containerRect.left,
-            y: rect.top + rect.height / 2 - containerRect.top
-        };
+        let x, y;
+        
+        if (fromEdge === 'top') {
+            x = rect.left + rect.width / 2 - containerRect.left;
+            y = rect.top - containerRect.top;
+        } else if (fromEdge === 'bottom') {
+            x = rect.left + rect.width / 2 - containerRect.left;
+            y = rect.top + rect.height - containerRect.top;
+        } else if (fromEdge === 'right') {
+            x = rect.left + rect.width - containerRect.left;
+            y = rect.top + rect.height / 2 - containerRect.top;
+        } else if (fromEdge === 'left') {
+            x = rect.left - containerRect.left;
+            y = rect.top + rect.height / 2 - containerRect.top;
+        } else {
+            x = rect.left + rect.width / 2 - containerRect.left;
+            y = rect.top + rect.height / 2 - containerRect.top;
+        }
+        
+        return {x, y, toEdge};
     }
     
     function drawArrows() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        const prosecutor = getElementCenter('prosecutor');
-        const governor = getElementCenter('governor');
-        const mvd = getElementCenter('mvd');
-        const rosgvardia = getElementCenter('rosgvardia');
-        const fsb = getElementCenter('fsb');
-        const minzdrav = getElementCenter('minzdrav');
+        const prosecutorRight = getEdgePoint('prosecutor', 'right', 'left');
+        const governorLeft = getEdgePoint('governor', 'left', 'right');
+        
+        const mvdTop = getEdgePoint('mvd', 'top', 'bottom');
+        const rosgvardiaTop = getEdgePoint('rosgvardia', 'top', 'bottom');
+        const fsbTop = getEdgePoint('fsb', 'top', 'bottom');
+        const minzdravTop = getEdgePoint('minzdrav', 'top', 'bottom');
+        
+        const prosecutorBottom = getEdgePoint('prosecutor', 'bottom', 'top');
+        const governorBottom = getEdgePoint('governor', 'bottom', 'top');
         
         ctx.strokeStyle = '#8b0000';
         ctx.lineWidth = 2;
         ctx.fillStyle = '#8b0000';
         
-        drawTwoWayArrow(prosecutor, governor);
+        drawTwoWayArrow(prosecutorRight, governorLeft);
         
-        drawArrow(mvd, prosecutor);
-        drawArrow(rosgvardia, prosecutor);
-        drawArrow(fsb, prosecutor);
+        drawArrow(mvdTop, prosecutorBottom);
+        drawArrow(rosgvardiaTop, prosecutorBottom);
+        drawArrow(fsbTop, prosecutorBottom);
         
-        drawArrow(minzdrav, governor);
+        drawArrow(minzdravTop, governorBottom);
     }
     
     function drawArrow(from, to) {
+        const startX = from.x;
+        const startY = from.y;
+        const endX = to.x;
+        const endY = to.y;
+        
         ctx.beginPath();
-        ctx.moveTo(from.x, from.y);
-        ctx.lineTo(to.x, to.y);
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(endX, endY);
         ctx.stroke();
         
-        const angle = Math.atan2(to.y - from.y, to.x - from.x);
+        const angle = Math.atan2(endY - startY, endX - startX);
         const arrowLength = 10;
         
         ctx.beginPath();
-        ctx.moveTo(to.x, to.y);
+        ctx.moveTo(endX, endY);
         ctx.lineTo(
-            to.x - arrowLength * Math.cos(angle - Math.PI / 6),
-            to.y - arrowLength * Math.sin(angle - Math.PI / 6)
+            endX - arrowLength * Math.cos(angle - Math.PI / 6),
+            endY - arrowLength * Math.sin(angle - Math.PI / 6)
         );
         ctx.lineTo(
-            to.x - arrowLength * Math.cos(angle + Math.PI / 6),
-            to.y - arrowLength * Math.sin(angle + Math.PI / 6)
+            endX - arrowLength * Math.cos(angle + Math.PI / 6),
+            endY - arrowLength * Math.sin(angle + Math.PI / 6)
         );
         ctx.closePath();
         ctx.fill();
     }
     
     function drawTwoWayArrow(point1, point2) {
+        const startX = point1.x;
+        const startY = point1.y;
+        const endX = point2.x;
+        const endY = point2.y;
+        
         ctx.beginPath();
-        ctx.moveTo(point1.x, point1.y);
-        ctx.lineTo(point2.x, point2.y);
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(endX, endY);
         ctx.stroke();
         
-        let angle = Math.atan2(point2.y - point1.y, point2.x - point1.x);
-        drawArrowHead(point2.x, point2.y, angle);
+        let angle = Math.atan2(endY - startY, endX - startX);
+        drawArrowHead(endX, endY, angle);
         
-        angle = Math.atan2(point1.y - point2.y, point1.x - point2.x);
-        drawArrowHead(point1.x, point1.y, angle);
+        angle = Math.atan2(startY - endY, startX - endX);
+        drawArrowHead(startX, startY, angle);
     }
     
     function drawArrowHead(x, y, angle) {

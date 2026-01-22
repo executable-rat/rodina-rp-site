@@ -19,7 +19,7 @@ main:
       - title: "Правила Криминал"
         url: "/rules/crime/"
         icon: "shield-exclamation"
-      - title: "Правила Криминал"
+      - title: "Правила Лидеров"
         url: "/rules/frac-leader/"
         icon: "person-raised-hand"
 
