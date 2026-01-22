@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    {% include head.html %}
+</head>
+<body class="bg-dark-bg text-gray-100 min-h-screen flex flex-col">
+    {% include header.html %}
+    
+    <main class="flex-grow container mx-auto px-4 py-8 max-w-6xl">
+        {{ content }}
+    </main>
+    
+    {% include footer.html %}
+</body>
+</html>

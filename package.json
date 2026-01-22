@@ -1,0 +1,15 @@
+{
+  "name": "rodina-rp-site",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "bundle exec jekyll serve --livereload",
+    "build": "bundle exec jekyll build",
+    "css": "npx tailwindcss -i ./assets/css/main.scss -o ./_site/assets/css/main.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.31",
+    "autoprefixer": "^10.4.16",
+    "@tailwindcss/typography": "^0.5.10"
+  }
+}

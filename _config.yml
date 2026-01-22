@@ -1,0 +1,32 @@
+title: "RODINA ROLE PLAY | UNTURNED"
+url: "https://executable-rat.github.io"
+baseurl: "/rodina-rp-site"
+
+include:
+  - _pages
+  - _pages/rules
+  - _pages/laws
+  - _pages/factions
+
+exclude:
+  - _pages/_site
+  - _posts
+
+plugins:
+  - jekyll-seo-tag
+
+
+permalink: pretty
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  
+  list_indent: 2
+  gfm_quirks: ['paragraph_end']
+
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    disable: true
