@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
         drawArrows();
     }
     
-    function getEdgePoint(elementId, fromEdge, toEdge) {
+    function getEdgePoint(elementId, fromEdge, offsetPercent = 0.5) {
         const el = document.getElementById(elementId);
         if (!el) return {x: 0, y: 0};
         
@@ -247,38 +247,41 @@ document.addEventListener('DOMContentLoaded', function() {
         let x, y;
         
         if (fromEdge === 'top') {
-            x = rect.left + rect.width / 2 - containerRect.left;
+            x = rect.left + (rect.width * offsetPercent) - containerRect.left;
             y = rect.top - containerRect.top;
         } else if (fromEdge === 'bottom') {
-            x = rect.left + rect.width / 2 - containerRect.left;
+            x = rect.left + (rect.width * offsetPercent) - containerRect.left;
             y = rect.top + rect.height - containerRect.top;
         } else if (fromEdge === 'right') {
             x = rect.left + rect.width - containerRect.left;
-            y = rect.top + rect.height / 2 - containerRect.top;
+            y = rect.top + (rect.height * offsetPercent) - containerRect.top;
         } else if (fromEdge === 'left') {
             x = rect.left - containerRect.left;
-            y = rect.top + rect.height / 2 - containerRect.top;
+            y = rect.top + (rect.height * offsetPercent) - containerRect.top;
         } else {
             x = rect.left + rect.width / 2 - containerRect.left;
             y = rect.top + rect.height / 2 - containerRect.top;
         }
         
-        return {x, y, toEdge};
+        return {x, y};
     }
     
     function drawArrows() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        const prosecutorRight = getEdgePoint('prosecutor', 'right', 'left');
-        const governorLeft = getEdgePoint('governor', 'left', 'right');
+        const prosecutorRight = getEdgePoint('prosecutor', 'right', 0.5);
+        const governorLeft = getEdgePoint('governor', 'left', 0.5);
         
-        const mvdTop = getEdgePoint('mvd', 'top', 'bottom');
-        const rosgvardiaTop = getEdgePoint('rosgvardia', 'top', 'bottom');
-        const fsbTop = getEdgePoint('fsb', 'top', 'bottom');
-        const minzdravTop = getEdgePoint('minzdrav', 'top', 'bottom');
+        const mvdTop = getEdgePoint('mvd', 'top', 0.5);
+        const rosgvardiaTop = getEdgePoint('rosgvardia', 'top', 0.5);
+        const fsbTop = getEdgePoint('fsb', 'top', 0.5);
+        const minzdravTop = getEdgePoint('minzdrav', 'top', 0.5);
         
-        const prosecutorBottom = getEdgePoint('prosecutor', 'bottom', 'top');
-        const governorBottom = getEdgePoint('governor', 'bottom', 'top');
+        const prosecutorBottomLeft = getEdgePoint('prosecutor', 'bottom', 0.25);
+        const prosecutorBottomCenter = getEdgePoint('prosecutor', 'bottom', 0.5);
+        const prosecutorBottomRight = getEdgePoint('prosecutor', 'bottom', 0.75);
+        
+        const governorBottomCenter = getEdgePoint('governor', 'bottom', 0.5);
         
         ctx.strokeStyle = '#8b0000';
         ctx.lineWidth = 2;
@@ -286,11 +289,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         drawTwoWayArrow(prosecutorRight, governorLeft);
         
-        drawArrow(mvdTop, prosecutorBottom);
-        drawArrow(rosgvardiaTop, prosecutorBottom);
-        drawArrow(fsbTop, prosecutorBottom);
+        drawArrow(mvdTop, prosecutorBottomLeft);
+        drawArrow(rosgvardiaTop, prosecutorBottomCenter);
+        drawArrow(fsbTop, prosecutorBottomRight);
         
-        drawArrow(minzdravTop, governorBottom);
+        drawArrow(minzdravTop, governorBottomCenter);
     }
     
     function drawArrow(from, to) {
