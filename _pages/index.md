@@ -5,6 +5,32 @@ permalink: /
 ---
 
 <style>
+  .snowflake {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.8;
+    z-index: 10;
+  }
+
+  @keyframes snowfall {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(var(--end-x), 100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -342,6 +368,43 @@ permalink: /
     animation: fadeInLeft 0.6s ease-out forwards;
   }
 
+  /* Стили для новой герой-секции */
+  .hero-section {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    padding-top: 15vh;
+  }
 
   @media (max-width: 767px) {
     .hero-mascot-container,
@@ -349,8 +412,8 @@ permalink: /
       display: none !important;
     }
     
-    .relative.z-10.p-8.md\\:p-16 {
-      padding-right: 2rem !important;
+    .hero-content {
+      padding-top: 20vh;
     }
     
     .gallery-image-container {
@@ -481,57 +544,53 @@ permalink: /
       font-size: 2rem;
     }
   }
-
-  .relative.rounded-2xl.mb-16 {
-    overflow: visible !important;
-  }
 </style>
 
-<div class="relative rounded-2xl mb-16 overflow-visible">
-    <div class="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary-red/20 to-dark-bg rounded-2xl overflow-hidden"></div>
-    <div class="absolute top-0 left-0 w-full h-full overflow-hidden rounded-2xl">
-        <div class="absolute top-10 right-10 w-64 h-64 bg-primary-red/10 rounded-full blur-3xl floating-element"></div>
-        <div class="absolute bottom-10 left-10 w-48 h-48 bg-accent-red/10 rounded-full blur-3xl floating-element" style="animation-delay: 1s;"></div>
+<section class="hero-section">
+  <div class="video-background">
+    <video autoplay muted loop playsinline>
+      <source src="https://assets.mixkit.co/videos/41576/41576-720.mp4" type="video/mp4">
+      Ваш браузер не поддерживает видео.
+    </video>
+  </div>
+  
+  <div class="video-overlay"></div>
+  
+  <div id="snow-container"></div>
+  
+  <div class="hero-content container mx-auto px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 animate-fade-in-up">
+        RODINA <span class="text-primary-red">ROLEPLAY</span>
+      </h1>
+      
+      <!-- Описание -->
+      <p class="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-8 animate-fade-in-up animation-delay-100">
+        Многопользовательская онлайн игра с огромным Открытым миром<br>в котором ты можешь стать кем захочешь
+      </p>
+      
+      <!-- Кнопки -->
+      <div class="flex flex-col sm:flex-row gap-6 justify-center mt-12 animate-fade-in-up animation-delay-200">
+        <a href="https://gamemonitoring.ru/unturned/servers/10706611/connect" 
+           target="_blank"
+           class="px-10 py-5 bg-gradient-to-r from-primary-red to-accent-red text-white font-bold text-xl rounded-xl hover:shadow-2xl hover:shadow-primary-red/40 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 group relative overflow-hidden glow-on-hover">
+          <i class="bi bi-play-fill text-2xl"></i>
+          НАЧАТЬ ИГРУ
+          <i class="bi bi-arrow-right text-2xl group-hover:translate-x-2 transition-transform"></i>
+        </a>
+        
+        <a href="https://discord.gg/4ZmEmNzk" 
+           target="_blank"
+           class="px-10 py-5 bg-[#5865F2] text-white font-bold text-xl rounded-xl hover:shadow-2xl hover:shadow-[#5865F2]/40 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 relative overflow-hidden glow-on-hover">
+          <i class="bi bi-discord text-2xl"></i>
+          DISCORD
+        </a>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="hero-mascot-container animate-float-y">
-        <img src="{{ site.baseurl }}/assets/img/mascot.png" alt="Маскот RODINA RP">
-    </div>
-    
-    <div class="relative z-10 p-8 md:p-16">
-        <div class="max-w-4xl mx-auto">
-            <div class="flex items-center gap-6 mb-6 animate-fade-in-up">
-                <div>
-                    <h1 class="text-4xl md:text-6xl font-bold text-white mb-2 animate-fade-in-up animation-delay-100">RODINA <span class="text-primary-red">RP</span></h1>
-                    <p class="text-xl text-gray-300 animate-fade-in-up animation-delay-200">Ролевой проект по Unturned в России</p>
-                </div>
-            </div>
-            
-            <p class="text-xl text-gray-300 mb-8 max-w-2xl animate-fade-in-up animation-delay-300">
-                Это ролевой проект, целиком и полностью посвящённый России. Действие происходит в знакомых локациях, а правила и механики построены вокруг реалистичного отыгрыша жизни в современных российских реалиях. Создайте своего персонажа, найдите своё место в социальной структуре и влияйте на мир вокруг.
-            </p>
-            
-            <div class="flex flex-wrap gap-4 mb-12">
-                <a href="https://gamemonitoring.ru/unturned/servers/10706611/connect" 
-                  target="_blank"
-                  class="px-8 py-4 bg-gradient-to-r from-primary-red to-accent-red text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-primary-red/30 transition-all duration-300 flex items-center gap-3 group relative overflow-hidden animate-fade-in-up animation-delay-400">
-                    <i class="bi bi-play-fill text-xl"></i>
-                    Начать играть
-                    <i class="bi bi-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                </a>
-                
-                <a href="https://discord.gg/4ZmEmNzk" 
-                  target="_blank"
-                  class="px-8 py-4 bg-[#5865F2] text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-[#5865F2]/30 transition-all duration-300 flex items-center gap-3 relative overflow-hidden animate-fade-in-up animation-delay-500">
-                    <i class="bi bi-discord text-xl"></i>
-                    Discord
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="space-y-20 mb-20">
+<div class="space-y-20 mb-20 container mx-auto px-4">
     <div class="relative reveal-on-scroll">
         <div class="grid md:grid-cols-2 gap-8 items-center">
             <div class="relative z-10 order-2 md:order-1 animate-fade-in-left">
@@ -694,6 +753,35 @@ permalink: /
 </div>
 
 <script>
+  function createSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+
+    const size = Math.random() * 5 + 2;
+    snowflake.style.width = `${size}px`;
+    snowflake.style.height = `${size}px`;
+
+    snowflake.style.left = `${Math.random() * 100}%`;
+    snowflake.style.top = '-10px';
+
+    const duration = Math.random() * 10 + 10;
+    const delay = Math.random() * 5;
+    const endX = Math.random() * 100 - 50;
+    
+    snowflake.style.animation = `snowfall ${duration}s linear ${delay}s infinite`;
+    snowflake.style.setProperty('--end-x', `${endX}px`);
+    
+    document.getElementById('snow-container').appendChild(snowflake);
+    
+    setTimeout(() => {
+      snowflake.remove();
+    }, (duration + delay) * 1000);
+  }
+
+  function createSnowfall() {
+    setInterval(createSnowflake, 50);
+  }
+
   document.addEventListener('DOMContentLoaded', function() {
     const gallerySlides = document.getElementById('gallerySlides');
     const prevBtn = document.getElementById('prevBtn');
@@ -761,6 +849,8 @@ permalink: /
     
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll();
+
+    createSnowfall();
 
     const listItems = document.querySelectorAll('.list-item-animate');
     listItems.forEach((item, index) => {
