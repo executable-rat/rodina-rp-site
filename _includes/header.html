@@ -23,7 +23,7 @@
                                 {% if first_item.icon %}
                                 <i class="bi bi-{{ first_item.icon }} text-xs sm:text-sm md:text-base flex-shrink-0"></i>
                                 {% endif %}
-                                <span class="truncate">{{ first_item.title }}</span>
+                                <span class="truncate max-w-[80px] lg:max-w-[100px] xl:max-w-none">{{ first_item.title }}</span>
                             </a>
                         </div>
                         
@@ -33,7 +33,7 @@
                                class="flex items-center gap-1 sm:gap-1.5 md:gap-2 px-1.5 sm:px-2 md:px-2.5 py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap
                                       text-gray-400 hover:text-white hover:bg-primary-red/10">
                                 <i class="bi bi-heart-fill text-xs sm:text-sm md:text-base flex-shrink-0"></i>
-                                <span class="truncate">Донат</span>
+                                <span class="truncate max-w-[50px] lg:max-w-[60px] xl:max-w-none">Донат</span>
                             </a>
                             
                             <a href="https://boosty.to/virysrevivalrp" 
@@ -41,7 +41,7 @@
                                class="flex items-center gap-1 sm:gap-1.5 md:gap-2 px-1.5 sm:px-2 md:px-2.5 py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap
                                       text-gray-400 hover:text-white hover:bg-primary-red/10">
                                 <i class="bi bi-lightning-charge text-xs sm:text-sm md:text-base flex-shrink-0"></i>
-                                <span class="truncate">Boosty</span>
+                                <span class="truncate max-w-[60px] lg:max-w-[70px] xl:max-w-none">Boosty</span>
                             </a>
                         </div>
                         
@@ -57,7 +57,7 @@
                                 {% if item.icon %}
                                 <i class="bi bi-{{ item.icon }} text-xs sm:text-sm md:text-base flex-shrink-0"></i>
                                 {% endif %}
-                                <span class="truncate">{{ item.title | replace: " и ", " & " | truncate: 12 }}</span>
+                                <span class="truncate max-w-[90px] lg:max-w-[110px] xl:max-w-none">{{ item.title }}</span>
                                 {% if item.subitems %}
                                 <i class="bi bi-chevron-down text-xs flex-shrink-0 ml-0.5 sm:ml-1"></i>
                                 {% endif %}
@@ -215,8 +215,9 @@
     
     @media (min-width: 768px) and (max-width: 1024px) {
         nav .container > div > div:nth-child(2) {
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             justify-content: flex-end;
+            overflow: hidden;
         }
         
         .group .absolute {
@@ -234,40 +235,14 @@
             margin-left: 0.125rem;
         }
         
-        .hidden.md\\:flex .space-x-0\\.5 > * + * {
-            margin-left: 0.125rem;
-        }
-        
-        .hidden.md\\:flex a {
-            padding-left: 0.4rem;
-            padding-right: 0.4rem;
-            font-size: 0.7rem;
-        }
-        
         .hidden.md\\:flex a span {
-            max-width: 70px;
+            max-width: 60px !important;
         }
     }
     
     @media (min-width: 1025px) and (max-width: 1200px) {
-        .hidden.md\\:flex a {
-            padding-left: 0.6rem;
-            padding-right: 0.6rem;
-            font-size: 0.75rem;
-        }
-        
         .hidden.md\\:flex a span {
-            max-width: 90px;
-        }
-        
-        .group .absolute {
-            left: 0;
-            right: auto;
-        }
-        
-        .group:last-child .absolute {
-            right: 0;
-            left: auto;
+            max-width: 80px !important;
         }
     }
     
@@ -285,6 +260,17 @@
     
     .bi {
         flex-shrink: 0;
+    }
+    
+    @media (max-width: 1100px) {
+        .hidden.md\\:flex .space-x-0\\.5 > * + * {
+            margin-left: 0.125rem;
+        }
+        
+        .hidden.md\\:flex a {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
     }
     
     @media (max-width: 640px) {
