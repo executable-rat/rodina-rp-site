@@ -64,35 +64,6 @@ permalink: /
     }
   }
 
-  @keyframes fadeInScale {
-    from {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  @keyframes floatY {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  @keyframes floatDude {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-15px);
-    }
-  }
-
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
     opacity: 0;
@@ -108,17 +79,8 @@ permalink: /
     opacity: 0;
   }
 
-  .animate-fade-in-scale {
-    animation: fadeInScale 0.6s ease-out forwards;
-    opacity: 0;
-  }
-
   .animate-float-y {
     animation: floatY 3s ease-in-out infinite;
-  }
-
-  .animate-float-dude {
-    animation: floatDude 4s ease-in-out infinite;
   }
 
   .animation-delay-100 {
@@ -133,21 +95,10 @@ permalink: /
     animation-delay: 0.3s;
   }
 
-  .animation-delay-400 {
-    animation-delay: 0.4s;
-  }
-
-  .animation-delay-500 {
-    animation-delay: 0.5s;
-  }
-
-  .animation-delay-600 {
-    animation-delay: 0.6s;
-  }
-
   .hero-section {
     height: 100vh;
     overflow: hidden;
+    position: relative;
   }
 
   .video-background {
@@ -381,151 +332,86 @@ permalink: /
     min-height: 300px;
   }
 
-  .cta-image-container {
-    position: absolute;
-    z-index: 30;
-    pointer-events: none;
-    display: none;
-  }
-
-  .cta-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: bottom right;
-  }
-
-  .hero-mascot-container {
-    position: absolute;
-    z-index: 40;
-    pointer-events: none;
-    display: none;
-    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3));
-  }
-
-  .hero-mascot-container img {
-    object-fit: contain;
-    display: block;
-    width: 100%;
-    height: 100%;
-  }
-
   @media (max-width: 767px) {
-    .hero-mascot-container,
-    .cta-image-container {
-      display: none !important;
+    .hero-content h1 {
+      font-size: 2.5rem !important;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-content p {
+      font-size: 1rem !important;
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero-content .flex {
+      gap: 1rem !important;
+      margin-top: 2rem !important;
+    }
+    
+    .hero-content a {
+      padding: 0.75rem 1.5rem !important;
+      font-size: 0.9rem !important;
+    }
+    
+    .gallery-image-container {
+      height: 250px;
+    }
+    
+    .gallery-btn {
+      width: 35px;
+      height: 35px;
+      font-size: 16px;
+    }
+    
+    .gallery-btn-prev {
+      left: 5px;
+    }
+    
+    .gallery-btn-next {
+      right: 5px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero-content h1 {
+      font-size: 4rem !important;
+    }
+    
+    .hero-content p {
+      font-size: 1.25rem !important;
+    }
+    
+    .hero-content a {
+      padding: 1rem 2rem !important;
+      font-size: 1rem !important;
     }
     
     .gallery-image-container {
       height: 350px;
     }
-    
-    .gallery-btn {
-      width: 40px;
-      height: 40px;
-      font-size: 20px;
-    }
-    
-    .gallery-btn-prev {
-      left: 10px;
-    }
-    
-    .gallery-btn-next {
-      right: 10px;
-    }
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .hero-mascot-container {
-      display: none;
-    }
-    
-    .cta-image-container {
-      display: none;
-    }
-    
-    .cta-content {
-      padding-right: 320px;
-      padding-left: 2rem;
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-    }
-  }
-
-  @media (min-width: 1024px) and (max-width: 1279px) {
-    .hero-mascot-container {
-      display: none;
-    }
-    
-    .cta-image-container {
-      display: none;
-    }
-    
-    .cta-content {
-      padding-right: 400px;
-      padding-left: 4rem;
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-    }
-  }
-
-  @media (min-width: 1280px) and (max-width: 1535px) {
-    .hero-mascot-container {
-      display: block;
-      width: 1100px;
-      height: 1100px;
-      right: -450px;
-      bottom: -285px;
-      transform: rotate(4.5deg);
-      transform-origin: bottom right;
-    }
-    
-    .cta-image-container {
-      display: block;
-      width: 600px;
-      height: 450px;
-      right: 80px;
-      bottom: -50px;
-    }
-    
-    .cta-content {
-      padding-right: 450px;
-      padding-left: 5rem;
-    }
-  }
-
-  @media (min-width: 1536px) {
-    .hero-mascot-container {
-      display: block;
-      width: 1100px;
-      height: 1100px;
-      right: -430px;
-      bottom: -280px;
-      transform: rotate(5deg);
-      transform-origin: bottom right;
-    }
-    
-    .cta-image-container {
-      display: block;
-      width: 560px;
-      height: 470px;
-      right: 70px;
-      bottom: -75px;
-    }
-    
-    .cta-content {
-      padding-right: 450px;
-      padding-left: 5rem;
-    }
   }
 
   @media (max-width: 480px) {
+    .hero-content h1 {
+      font-size: 2rem !important;
+    }
+    
+    .hero-content p {
+      font-size: 0.9rem !important;
+    }
+    
+    .hero-content br {
+      display: none;
+    }
+    
     .gallery-image-container {
-      height: 250px;
+      height: 200px;
     }
     
     .gallery-title {
-      font-size: 2rem;
+      font-size: 1.75rem;
     }
   }
 </style>
@@ -595,7 +481,7 @@ permalink: /
                 </ul>
             </div>
             <div class="relative order-1 md:order-2 animate-fade-in-right">
-                <div class="absolute -top-6 -right-6 w-48 h-48 bg-primary-red/20 rounded-full blur-3xl floating-element" style="animation-delay: 0.5s;"></div>
+                <div class="absolute -top-6 -right-6 w-48 h-48 bg-primary-red/20 rounded-full blur-3xl"></div>
                 <div class="relative rounded-2xl overflow-hidden border border-primary-red/30 shadow-2xl card-hover-effect">
                     <img src="{{ site.baseurl }}/assets/img/mpo.png" 
                          alt="Магазин премиальной одежды" 
@@ -677,7 +563,7 @@ permalink: /
 <div class="relative reveal-on-scroll">
     <div class="grid md:grid-cols-2 gap-8 items-center">
         <div class="relative animate-fade-in-left">
-            <div class="absolute -top-6 -left-6 w-48 h-48 bg-accent-red/20 rounded-full blur-3xl floating-element" style="animation-delay: 0.3s;"></div>
+            <div class="absolute -top-6 -left-6 w-48 h-48 bg-accent-red/20 rounded-full blur-3xl"></div>
             <div class="relative rounded-2xl overflow-hidden border border-primary-red/30 shadow-2xl card-hover-effect">
                 <img src="{{ site.baseurl }}/assets/img/sturm.png" 
                      alt="Штурм здания" 
@@ -695,7 +581,7 @@ permalink: /
                     <h4 class="font-bold text-white mb-1">Государственные структуры</h4>
                     <p class="text-sm text-gray-400">Правоохранительные органы, медики, адвокаты</p>
                 </div>
-                <div class="bg-dark-bg/50 rounded-xl p-4 border border-gray-800 card-hover-effect reveal-on-scroll" style="animation-delay: 0.2s;">
+                <div class="bg-dark-bg/50 rounded-xl p-4 border border-gray-800 card-hover-effect reveal-on-scroll">
                     <i class="bi bi-shield-exclamation text-2xl text-accent-red mb-2"></i>
                     <h4 class="font-bold text-white mb-1">Криминальные группировки</h4>
                     <p class="text-sm text-gray-400">Банды, наркотики, черный рынок</p>
@@ -709,27 +595,23 @@ permalink: /
     <div class="cta-bg"></div>
     
     <div class="cta-content">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6 animate-fade-in-up">Готовы начать игру?</h2>
-        <p class="text-lg md:text-xl text-gray-300 mb-6 md:mb-8 max-w-full md:max-w-2xl animate-fade-in-up animation-delay-100">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6">Готовы начать игру?</h2>
+        <p class="text-lg md:text-xl text-gray-300 mb-6 md:mb-8 max-w-full md:max-w-2xl">
             Присоединяйтесь к проекту, где ролевая игра строится вокруг России и её социальной структуры. Создайте персонажа, найдите свою фракцию, зарабатывайте на кастомизацию и станьте частью истории.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
             <a href="https://gamemonitoring.ru/unturned/servers/10706611/connect" 
                target="_blank"
-               class="px-6 py-3 md:px-10 md:py-4 bg-gradient-to-r from-primary-red to-accent-red text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-primary-red/40 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 text-sm md:text-base glow-on-hover animate-fade-in-up animation-delay-200">
+               class="px-6 py-3 md:px-10 md:py-4 bg-gradient-to-r from-primary-red to-accent-red text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-primary-red/40 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 text-sm md:text-base glow-on-hover">
                 <i class="bi bi-controller text-lg md:text-xl"></i>
                 Начать игру
             </a>
             <a href="{{ site.baseurl }}/rules/general/" 
-               class="px-6 py-3 md:px-10 md:py-4 bg-dark-bg border-2 border-primary-red text-white font-bold rounded-xl hover:bg-primary-red/10 transition-all duration-300 flex items-center justify-center gap-3 text-sm md:text-base glow-on-hover animate-fade-in-up animation-delay-300">
+               class="px-6 py-3 md:px-10 md:py-4 bg-dark-bg border-2 border-primary-red text-white font-bold rounded-xl hover:bg-primary-red/10 transition-all duration-300 flex items-center justify-center gap-3 text-sm md:text-base glow-on-hover">
                 <i class="bi bi-book text-lg md:text-xl"></i>
                 Правила
             </a>
         </div>
-    </div>
-    
-    <div class="cta-image-container animate-float-dude">
-        <img src="{{ site.baseurl }}/assets/img/dude.png" alt="Персонаж">
     </div>
 </div>
 
@@ -836,13 +718,6 @@ permalink: /
     const listItems = document.querySelectorAll('.list-item-animate');
     listItems.forEach((item, index) => {
       item.style.animationDelay = `${0.1 * (index + 1)}s`;
-    });
-
-    const floatingElements = document.querySelectorAll('.floating-element');
-    floatingElements.forEach((element, index) => {
-      if (!element.style.animationDelay) {
-        element.style.animationDelay = `${0.2 * index}s`;
-      }
     });
 
     setTimeout(() => {
