@@ -368,20 +368,21 @@ permalink: /
     animation: fadeInLeft 0.6s ease-out forwards;
   }
 
-  /* Стили для новой герой-секции */
   .hero-section {
     min-height: 100vh;
     position: relative;
     overflow: hidden;
+    margin-top: -56px;
+    padding-top: 56px;
   }
 
   .video-background {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: -1;
   }
 
   .video-background video {
@@ -391,19 +392,23 @@ permalink: /
   }
 
   .video-overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
-    z-index: 2;
+    z-index: -1;
   }
 
   .hero-content {
     position: relative;
-    z-index: 3;
-    padding-top: 15vh;
+    z-index: 2;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   @media (max-width: 767px) {
@@ -413,7 +418,7 @@ permalink: /
     }
     
     .hero-content {
-      padding-top: 20vh;
+      padding-top: 56px;
     }
     
     .gallery-image-container {
@@ -550,7 +555,6 @@ permalink: /
   <div class="video-background">
     <video autoplay muted loop playsinline>
       <source src="https://assets.mixkit.co/videos/41576/41576-720.mp4" type="video/mp4">
-      Ваш браузер не поддерживает видео.
     </video>
   </div>
   
@@ -558,18 +562,16 @@ permalink: /
   
   <div id="snow-container"></div>
   
-  <div class="hero-content container mx-auto px-4">
-    <div class="max-w-4xl mx-auto text-center">
+  <div class="hero-content">
+    <div class="max-w-4xl mx-auto px-4">
       <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 animate-fade-in-up">
         RODINA <span class="text-primary-red">ROLEPLAY</span>
       </h1>
       
-      <!-- Описание -->
       <p class="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-8 animate-fade-in-up animation-delay-100">
         Многопользовательская онлайн игра с огромным Открытым миром<br>в котором ты можешь стать кем захочешь
       </p>
       
-      <!-- Кнопки -->
       <div class="flex flex-col sm:flex-row gap-6 justify-center mt-12 animate-fade-in-up animation-delay-200">
         <a href="https://gamemonitoring.ru/unturned/servers/10706611/connect" 
            target="_blank"
@@ -756,14 +758,14 @@ permalink: /
   function createSnowflake() {
     const snowflake = document.createElement('div');
     snowflake.classList.add('snowflake');
-
+    
     const size = Math.random() * 5 + 2;
     snowflake.style.width = `${size}px`;
     snowflake.style.height = `${size}px`;
-
+    
     snowflake.style.left = `${Math.random() * 100}%`;
     snowflake.style.top = '-10px';
-
+    
     const duration = Math.random() * 10 + 10;
     const delay = Math.random() * 5;
     const endX = Math.random() * 100 - 50;
