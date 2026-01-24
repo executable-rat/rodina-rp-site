@@ -79,10 +79,6 @@ permalink: /
     opacity: 0;
   }
 
-  .animate-float-y {
-    animation: floatY 3s ease-in-out infinite;
-  }
-
   .animation-delay-100 {
     animation-delay: 0.1s;
   }
@@ -429,27 +425,27 @@ permalink: /
   
   <div class="hero-content">
     <div class="w-full max-w-4xl px-4 text-center">
-      <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 animate-fade-in-up">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 animate-fade-in-up">
         RODINA <span class="text-primary-red">ROLEPLAY</span>
       </h1>
       
-      <p class="text-xl md:text-2xl lg:text-3xl text-gray-300 mb-8 animate-fade-in-up animation-delay-100">
-        Многопользовательская онлайн игра с огромным Открытым миром<br>в котором ты можешь стать кем захочешь
+      <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 mb-8 animate-fade-in-up animation-delay-100">
+        Многопользовательская онлайн игра с огромным Открытым миром<br class="hidden sm:block">в котором ты можешь стать кем захочешь
       </p>
       
-      <div class="flex flex-col sm:flex-row gap-6 justify-center mt-12 animate-fade-in-up animation-delay-200">
+      <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mt-8 sm:mt-12 animate-fade-in-up animation-delay-200">
         <a href="https://gamemonitoring.ru/unturned/servers/10706611/connect" 
            target="_blank"
-           class="px-10 py-5 bg-gradient-to-r from-primary-red to-accent-red text-white font-bold text-xl rounded-xl hover:shadow-2xl hover:shadow-primary-red/40 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 group relative overflow-hidden glow-on-hover">
-          <i class="bi bi-play-fill text-2xl"></i>
+           class="px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-gradient-to-r from-primary-red to-accent-red text-white font-bold text-base sm:text-lg md:text-xl rounded-xl hover:shadow-2xl hover:shadow-primary-red/40 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 group relative overflow-hidden glow-on-hover">
+          <i class="bi bi-play-fill text-lg sm:text-xl md:text-2xl"></i>
           НАЧАТЬ ИГРУ
-          <i class="bi bi-arrow-right text-2xl group-hover:translate-x-2 transition-transform"></i>
+          <i class="bi bi-arrow-right text-lg sm:text-xl md:text-2xl group-hover:translate-x-2 transition-transform"></i>
         </a>
         
         <a href="https://discord.gg/4ZmEmNzk" 
            target="_blank"
-           class="px-10 py-5 bg-[#5865F2] text-white font-bold text-xl rounded-xl hover:shadow-2xl hover:shadow-[#5865F2]/40 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 relative overflow-hidden glow-on-hover">
-          <i class="bi bi-discord text-2xl"></i>
+           class="px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-[#5865F2] text-white font-bold text-base sm:text-lg md:text-xl rounded-xl hover:shadow-2xl hover:shadow-[#5865F2]/40 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 relative overflow-hidden glow-on-hover">
+          <i class="bi bi-discord text-lg sm:text-xl md:text-2xl"></i>
           DISCORD
         </a>
       </div>
@@ -481,7 +477,6 @@ permalink: /
                 </ul>
             </div>
             <div class="relative order-1 md:order-2 animate-fade-in-right">
-                <div class="absolute -top-6 -right-6 w-48 h-48 bg-primary-red/20 rounded-full blur-3xl"></div>
                 <div class="relative rounded-2xl overflow-hidden border border-primary-red/30 shadow-2xl card-hover-effect">
                     <img src="{{ site.baseurl }}/assets/img/mpo.png" 
                          alt="Магазин премиальной одежды" 
@@ -563,7 +558,6 @@ permalink: /
 <div class="relative reveal-on-scroll">
     <div class="grid md:grid-cols-2 gap-8 items-center">
         <div class="relative animate-fade-in-left">
-            <div class="absolute -top-6 -left-6 w-48 h-48 bg-accent-red/20 rounded-full blur-3xl"></div>
             <div class="relative rounded-2xl overflow-hidden border border-primary-red/30 shadow-2xl card-hover-effect">
                 <img src="{{ site.baseurl }}/assets/img/sturm.png" 
                      alt="Штурм здания" 
@@ -719,9 +713,5 @@ permalink: /
     listItems.forEach((item, index) => {
       item.style.animationDelay = `${0.1 * (index + 1)}s`;
     });
-
-    setTimeout(() => {
-      document.body.classList.add('loaded');
-    }, 100);
   });
 </script>
