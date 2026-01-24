@@ -145,6 +145,102 @@ permalink: /
     animation-delay: 0.6s;
   }
 
+  .hero-section {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+  }
+
+  .gradient-text {
+    background: linear-gradient(90deg, #ec4b4b, #ff416c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-on-hover {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glow-on-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.7s;
+  }
+
+  .glow-on-hover:hover::before {
+    left: 100%;
+  }
+
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card-hover-effect {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(236, 75, 75, 0.2);
+  }
+
+  .list-item-animate {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeInLeft 0.6s ease-out forwards;
+  }
+
   .gallery-section {
     margin: 4rem 0;
     width: 100%;
@@ -315,110 +411,10 @@ permalink: /
     height: 100%;
   }
 
-  .gradient-text {
-    background: linear-gradient(90deg, #ec4b4b, #ff416c);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .glow-on-hover {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .glow-on-hover::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transition: left 0.7s;
-  }
-
-  .glow-on-hover:hover::before {
-    left: 100%;
-  }
-
-  .reveal-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-
-  .reveal-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .card-hover-effect {
-    transition: all 0.3s ease;
-  }
-
-  .card-hover-effect:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(236, 75, 75, 0.2);
-  }
-
-  .list-item-animate {
-    opacity: 0;
-    transform: translateX(-20px);
-    animation: fadeInLeft 0.6s ease-out forwards;
-  }
-
-  .hero-section {
-    min-height: 100vh;
-    position: relative;
-    overflow: hidden;
-    margin-top: -56px;
-    padding-top: 56px;
-  }
-
-  .video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  }
-
-  .video-background video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .video-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
-    z-index: -1;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
   @media (max-width: 767px) {
     .hero-mascot-container,
     .cta-image-container {
       display: none !important;
-    }
-    
-    .hero-content {
-      padding-top: 56px;
     }
     
     .gallery-image-container {
@@ -449,10 +445,6 @@ permalink: /
       display: none;
     }
     
-    .relative.z-10.p-8.md\\:p-16 {
-      padding-right: 240px !important;
-    }
-    
     .cta-content {
       padding-right: 320px;
       padding-left: 2rem;
@@ -468,10 +460,6 @@ permalink: /
     
     .cta-image-container {
       display: none;
-    }
-    
-    .relative.z-10.p-8.md\\:p-16 {
-      padding-right: 300px !important;
     }
     
     .cta-content {
@@ -501,10 +489,6 @@ permalink: /
       bottom: -50px;
     }
     
-    .relative.z-10.p-8.md\\:p-16 {
-      padding-right: 400px !important;
-    }
-    
     .cta-content {
       padding-right: 450px;
       padding-left: 5rem;
@@ -528,10 +512,6 @@ permalink: /
       height: 470px;
       right: 70px;
       bottom: -75px;
-    }
-    
-    .relative.z-10.p-8.md\\:p-16 {
-      padding-right: 500px !important;
     }
     
     .cta-content {
@@ -563,7 +543,7 @@ permalink: /
   <div id="snow-container"></div>
   
   <div class="hero-content">
-    <div class="max-w-4xl mx-auto px-4">
+    <div class="w-full max-w-4xl px-4 text-center">
       <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-4 animate-fade-in-up">
         RODINA <span class="text-primary-red">ROLEPLAY</span>
       </h1>
