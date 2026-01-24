@@ -493,8 +493,7 @@ permalink: /
         <div class="absolute top-10 right-10 w-64 h-64 bg-primary-red/10 rounded-full blur-3xl floating-element"></div>
         <div class="absolute bottom-10 left-10 w-48 h-48 bg-accent-red/10 rounded-full blur-3xl floating-element" style="animation-delay: 1s;"></div>
     </div>
-    
-    <!-- Контейнер для маскота -->
+
     <div class="hero-mascot-container animate-float-y">
         <img src="{{ site.baseurl }}/assets/img/mascot.png" alt="Маскот RODINA RP">
     </div>
