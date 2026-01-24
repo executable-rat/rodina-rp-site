@@ -1,308 +1,976 @@
-<header class="bg-gradient-to-r from-primary-dark to-dark-bg border-b border-primary-red/30 sticky top-0 z-50 w-full">
-    <nav class="container mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 max-w-full relative">
-        <div class="flex items-center justify-between h-14 min-w-0">
-            <div class="flex-shrink-0 mr-3 sm:mr-4 md:mr-5 lg:mr-6 xl:mr-8">
-                <a href="{{ '/' | relative_url }}" class="text-base sm:text-lg md:text-xl lg:text-2xl font-bold tracking-tight hover:opacity-90 transition-opacity duration-300 block whitespace-nowrap">
-                    <span class="text-white">RODINA</span>
-                    <span class="text-primary-red"> RP</span>
-                </a>
-            </div>
-
-            <div class="hidden md:flex items-center min-w-0 flex-grow justify-end max-w-full">
-                <div class="flex items-center space-x-0.5 sm:space-x-1 md:space-x-1.5 lg:space-x-2 min-w-0 max-w-full">
-                    {% assign first_item = site.data.navigation.main | first %}
-                    <div class="relative group flex-shrink-0">
-                        <a href="{{ first_item.url | relative_url }}" 
-                           class="flex items-center gap-1 sm:gap-1.5 md:gap-2 px-1.5 sm:px-2 md:px-2.5 py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap
-                                  {% if page.url == first_item.url %}
-                                  bg-primary-red/20 text-accent-red
-                                  {% else %}
-                                  text-gray-400 hover:text-white hover:bg-primary-red/10
-                                  {% endif %}">
-                            {% if first_item.icon %}
-                            <i class="bi bi-{{ first_item.icon }} text-xs sm:text-sm md:text-base flex-shrink-0"></i>
-                            {% endif %}
-                            <span class="truncate">{{ first_item.title }}</span>
-                        </a>
-                    </div>
-                    
-                    <div class="flex items-center gap-0.5 sm:gap-1 md:gap-1.5 flex-shrink-0">
-                        <a href="https://rodinaroleplay.gamestores.app/" 
-                           target="_blank"
-                           class="flex items-center gap-1 sm:gap-1.5 md:gap-2 px-1.5 sm:px-2 md:px-2.5 py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap
-                                  text-gray-400 hover:text-white hover:bg-primary-red/10">
-                            <i class="bi bi-heart-fill text-xs sm:text-sm md:text-base flex-shrink-0"></i>
-                            <span class="truncate">Донат</span>
-                        </a>
-                        
-                        <a href="https://boosty.to/virysrevivalrp" 
-                           target="_blank"
-                           class="flex items-center gap-1 sm:gap-1.5 md:gap-2 px-1.5 sm:px-2 md:px-2.5 py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap
-                                  text-gray-400 hover:text-white hover:bg-primary-red/10">
-                            <i class="bi bi-lightning-charge text-xs sm:text-sm md:text-base flex-shrink-0"></i>
-                            <span class="truncate">Boosty</span>
-                        </a>
-                    </div>
-                    
-                    {% for item in site.data.navigation.main offset:1 %}
-                    <div class="relative group flex-shrink-0">
-                        <a href="{{ item.url | relative_url }}" 
-                           class="flex items-center gap-1 sm:gap-1.5 md:gap-2 px-1.5 sm:px-2 md:px-2.5 py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap
-                                  {% if page.url == item.url %}
-                                  bg-primary-red/20 text-accent-red
-                                  {% else %}
-                                  text-gray-400 hover:text-white hover:bg-primary-red/10
-                                  {% endif %}">
-                            {% if item.icon %}
-                            <i class="bi bi-{{ item.icon }} text-xs sm:text-sm md:text-base flex-shrink-0"></i>
-                            {% endif %}
-                            <span class="truncate">{{ item.title }}</span>
-                            {% if item.subitems %}
-                            <i class="bi bi-chevron-down text-xs flex-shrink-0 ml-0.5 sm:ml-1"></i>
-                            {% endif %}
-                        </a>
-                        
-                        {% if item.subitems %}
-                        <div class="absolute left-auto right-0 top-full mt-1 min-w-[280px] md:min-w-[320px] bg-dark-bg/95 backdrop-blur-md rounded-xl shadow-2xl 
-                                    opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-                                    transition-all duration-300 border border-primary-red/30 z-[9999] overflow-hidden transform translate-y-0
-                                    max-w-[calc(100vw-2rem)] xl:max-w-none xl:left-0 xl:right-auto">
-                            <div class="p-3">
-                                {% for subitem in item.subitems %}
-                                <a href="{{ subitem.url | relative_url }}" 
-                                   class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-red/20 
-                                          transition-all duration-300 group/item min-w-0">
-                                    <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary-red/10 flex-shrink-0 min-w-[2rem]">
-                                        <i class="bi bi-{{ subitem.icon }} text-primary-red flex-shrink-0"></i>
-                                    </div>
-                                    <div class="min-w-0 flex-1">
-                                        <div class="text-white font-medium truncate">{{ subitem.title }}</div>
-                                    </div>
-                                </a>
-                                {% endfor %}
-                            </div>
-                        </div>
-                        {% endif %}
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-
-            <div class="flex md:hidden items-center gap-1.5 sm:gap-2 flex-shrink-0">
-                <a href="https://rodinaroleplay.gamestores.app/" 
-                   target="_blank"
-                   class="p-1.5 sm:p-2 text-gray-400 hover:text-white hover:bg-primary-red/10 rounded-lg transition-all duration-300">
-                    <i class="bi bi-heart-fill text-base sm:text-lg"></i>
-                </a>
-                
-                <a href="https://boosty.to/virysrevivalrp" 
-                   target="_blank"
-                   class="p-1.5 sm:p-2 text-gray-400 hover:text-white hover:bg-primary-red/10 rounded-lg transition-all duration-300">
-                    <i class="bi bi-lightning-charge text-base sm:text-lg"></i>
-                </a>
-                
-                <button id="mobile-menu-button" class="p-1.5 sm:p-2 text-gray-400 hover:text-white hover:bg-primary-red/10 rounded-lg transition-all duration-300">
-                    <i id="mobile-menu-icon" class="bi bi-list text-lg sm:text-xl"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <div id="mobile-menu" class="hidden md:hidden bg-dark-bg/95 backdrop-blur-md border-b border-primary-red/30 transition-all duration-300 ease-in-out w-full absolute top-full left-0 right-0 z-[9999] shadow-2xl">
-        <div class="container mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 py-4 max-w-full">
-            {% assign first_item = site.data.navigation.main | first %}
-            <div class="mb-2">
-                <a href="{{ first_item.url | relative_url }}" 
-                   class="flex items-center justify-between px-4 py-3 rounded-lg {% if page.url == first_item.url %}bg-primary-red/20 text-accent-red{% else %}text-gray-400 hover:text-white hover:bg-primary-red/10{% endif %} transition-all duration-300">
-                    <div class="flex items-center gap-3 min-w-0">
-                        {% if first_item.icon %}<i class="bi bi-{{ first_item.icon }} flex-shrink-0"></i>{% endif %}
-                        <span class="font-medium truncate">{{ first_item.title }}</span>
-                    </div>
-                </a>
-            </div>
-            
-            <div class="mb-4">
-                <div class="mb-2">
-                    <a href="https://rodinaroleplay.gamestores.app/" 
-                       target="_blank"
-                       class="flex items-center justify-between px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-primary-red/10 transition-all duration-300">
-                        <div class="flex items-center gap-3 min-w-0">
-                            <i class="bi bi-heart-fill flex-shrink-0"></i>
-                            <span class="font-medium truncate">Донат</span>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="mb-2">
-                    <a href="https://boosty.to/virysrevivalrp" 
-                       target="_blank"
-                       class="flex items-center justify-between px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-primary-red/10 transition-all duration-300">
-                        <div class="flex items-center gap-3 min-w-0">
-                            <i class="bi bi-lightning-charge flex-shrink-0"></i>
-                            <span class="font-medium truncate">Boosty</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            
-            {% for item in site.data.navigation.main offset:1 %}
-            <div class="mb-2">
-                {% if item.subitems %}
-                <div class="mobile-submenu">
-                    <button class="mobile-submenu-toggle flex items-center justify-between w-full px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-primary-red/10 transition-all duration-300 min-w-0">
-                        <div class="flex items-center gap-3 min-w-0">
-                            {% if item.icon %}<i class="bi bi-{{ item.icon }} flex-shrink-0"></i>{% endif %}
-                            <span class="font-medium truncate">{{ item.title }}</span>
-                        </div>
-                        <i class="bi bi-chevron-right transition-transform duration-300 flex-shrink-0"></i>
-                    </button>
-                    <div class="mobile-submenu-content hidden mt-1 ml-4 pl-4 border-l border-primary-red/20">
-                        {% for subitem in item.subitems %}
-                        <a href="{{ subitem.url | relative_url }}" 
-                           class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-primary-red/10 transition-all duration-300 min-w-0">
-                            <div class="w-6 h-6 flex items-center justify-center rounded-lg bg-primary-red/10 flex-shrink-0 min-w-[1.5rem]">
-                                <i class="bi bi-{{ subitem.icon }} text-primary-red text-sm flex-shrink-0"></i>
-                            </div>
-                            <span class="text-sm truncate">{{ subitem.title }}</span>
-                        </a>
-                        {% endfor %}
-                    </div>
-                </div>
-                {% else %}
-                <a href="{{ item.url | relative_url }}" 
-                   class="flex items-center justify-between px-4 py-3 rounded-lg {% if page.url == item.url %}bg-primary-red/20 text-accent-red{% else %}text-gray-400 hover:text-white hover:bg-primary-red/10{% endif %} transition-all duration-300 min-w-0">
-                    <div class="flex items-center gap-3 min-w-0">
-                        {% if item.icon %}<i class="bi bi-{{ item.icon }} flex-shrink-0"></i>{% endif %}
-                        <span class="font-medium truncate">{{ item.title }}</span>
-                    </div>
-                </a>
-                {% endif %}
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</header>
+---
+layout: default
+title: Главная
+permalink: /
+---
 
 <style>
-    body {
-        overflow-x: hidden;
-        width: 100%;
+  /* Стиль снежинок */
+  .snowflake {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.8;
+    z-index: 20;
+    animation-timing-function: linear;
+  }
+
+  @keyframes snowfall {
+    0% {
+      transform: translate(0, -10px) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(var(--end-x), 100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Остальные анимации */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes floatY {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes floatDude {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-left {
+    animation: fadeInLeft 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-right {
+    animation: fadeInRight 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-scale {
+    animation: fadeInScale 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-float-y {
+    animation: floatY 3s ease-in-out infinite;
+  }
+
+  .animate-float-dude {
+    animation: floatDude 4s ease-in-out infinite;
+  }
+
+  .animation-delay-100 {
+    animation-delay: 0.1s;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 0.3s;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 0.5s;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 0.6s;
+  }
+
+  .gallery-section {
+    margin: 4rem 0;
+    width: 100%;
+  }
+  
+  .gallery-title {
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+  
+  .gallery-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+  
+  .gallery-slides {
+    display: flex;
+    transition: transform 0.3s ease;
+    width: 100%;
+  }
+  
+  .gallery-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .gallery-image-container {
+    height: 450px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    background: rgba(15, 15, 15, 0.5);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .gallery-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  
+  .gallery-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(236, 75, 75, 0.8);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+  
+  .gallery-btn:hover {
+    background: rgba(236, 75, 75, 1);
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  .gallery-btn-prev {
+    left: 20px;
+  }
+  
+  .gallery-btn-next {
+    right: 20px;
+  }
+  
+  .gallery-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  .gallery-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .gallery-indicator:hover {
+    background: rgba(236, 75, 75, 0.6);
+    transform: scale(1.2);
+  }
+  
+  .gallery-indicator.active {
+    background: #ec4b4b;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(236, 75, 75, 0.5);
+  }
+
+  .cta-section {
+    position: relative;
+    border-radius: 1.5rem;
+    margin-top: 5rem;
+    margin-bottom: 4rem;
+    min-height: 300px;
+  }
+
+  .cta-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(236, 75, 75, 0.2), rgba(255, 65, 108, 0.1));
+    border-radius: 1.5rem;
+    z-index: 1;
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 20;
+    padding: 2rem;
+    min-height: 300px;
+  }
+
+  .cta-image-container {
+    position: absolute;
+    z-index: 30;
+    pointer-events: none;
+    display: none;
+  }
+
+  .cta-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom right;
+  }
+
+  .hero-mascot-container {
+    position: absolute;
+    z-index: 40;
+    pointer-events: none;
+    display: none;
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.3));
+  }
+
+  .hero-mascot-container img {
+    object-fit: contain;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .gradient-text {
+    background: linear-gradient(90deg, #ec4b4b, #ff416c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-on-hover {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glow-on-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.7s;
+  }
+
+  .glow-on-hover:hover::before {
+    left: 100%;
+  }
+
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card-hover-effect {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(236, 75, 75, 0.2);
+  }
+
+  .list-item-animate {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeInLeft 0.6s ease-out forwards;
+  }
+
+  /* Стили для новой герой-секции */
+  .hero-section {
+    position: relative;
+    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  #snow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 4;
+  }
+
+  /* Фикс для навбара */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient(to bottom, rgba(15, 15, 15, 0.95), rgba(15, 15, 15, 0.8));
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(236, 75, 75, 0.3);
+  }
+
+  @media (max-width: 767px) {
+    .hero-mascot-container,
+    .cta-image-container {
+      display: none !important;
     }
     
-    @media (min-width: 768px) and (max-width: 1024px) {
-        nav .container > div > div:nth-child(2) {
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-        
-        .group .absolute {
-            max-width: min(320px, calc(100vw - 2rem));
-            right: 0;
-            left: auto;
-        }
-        
-        .group:last-child .absolute {
-            right: 0;
-            left: auto;
-        }
-        
-        nav .container .space-x-0\\.5 > * + * {
-            margin-left: 0.125rem;
-        }
+    .hero-content {
+      padding-top: 80px;
     }
     
-    @media (min-width: 1025px) {
-        .group .absolute {
-            left: 0;
-            right: auto;
-        }
-        
-        .group:last-child .absolute {
-            right: 0;
-            left: auto;
-        }
+    .gallery-image-container {
+      height: 350px;
     }
     
-    .bi {
-        flex-shrink: 0;
+    .gallery-btn {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
     }
     
-    @media (max-width: 1100px) {
-        .hidden.md\\:flex .space-x-0\\.5 > * + * {
-            margin-left: 0.125rem;
-        }
-        
-        .hidden.md\\:flex a {
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
-        }
+    .gallery-btn-prev {
+      left: 10px;
     }
+    
+    .gallery-btn-next {
+      right: 10px;
+    }
+    
+    .hero-section {
+      height: 100vh;
+      min-height: 100vh;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero-mascot-container {
+      display: none;
+    }
+    
+    .cta-image-container {
+      display: none;
+    }
+    
+    .hero-content {
+      padding-top: 80px;
+    }
+    
+    .hero-section {
+      height: 100vh;
+      min-height: 100vh;
+    }
+  }
+
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .hero-mascot-container {
+      display: none;
+    }
+    
+    .cta-image-container {
+      display: none;
+    }
+    
+    .hero-content {
+      padding-top: 80px;
+    }
+    
+    .hero-section {
+      height: 100vh;
+      min-height: 100vh;
+    }
+  }
+
+  @media (min-width: 1280px) and (max-width: 1535px) {
+    .hero-mascot-container {
+      display: block;
+      width: 1100px;
+      height: 1100px;
+      right: -450px;
+      bottom: -285px;
+      transform: rotate(4.5deg);
+      transform-origin: bottom right;
+    }
+    
+    .cta-image-container {
+      display: block;
+      width: 600px;
+      height: 450px;
+      right: 80px;
+      bottom: -50px;
+    }
+    
+    .hero-content {
+      padding-top: 80px;
+    }
+    
+    .hero-section {
+      height: 100vh;
+      min-height: 100vh;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .hero-mascot-container {
+      display: block;
+      width: 1100px;
+      height: 1100px;
+      right: -430px;
+      bottom: -280px;
+      transform: rotate(5deg);
+      transform-origin: bottom right;
+    }
+    
+    .cta-image-container {
+      display: block;
+      width: 560px;
+      height: 470px;
+      right: 70px;
+      bottom: -75px;
+    }
+    
+    .hero-content {
+      padding-top: 80px;
+    }
+    
+    .hero-section {
+      height: 100vh;
+      min-height: 100vh;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .gallery-image-container {
+      height: 250px;
+    }
+    
+    .gallery-title {
+      font-size: 2rem;
+    }
+    
+    .hero-section {
+      height: 100vh;
+      min-height: 100vh;
+    }
+  }
 </style>
 
+<!-- НОВАЯ ГЕРОЙ-СЕКЦИЯ -->
+<section class="hero-section">
+  <!-- Видео бэкграунд -->
+  <div class="video-background">
+    <video autoplay muted loop playsinline>
+      <source src="https://assets.mixkit.co/videos/41576/41576-720.mp4" type="video/mp4">
+      Ваш браузер не поддерживает видео.
+    </video>
+  </div>
+  
+  <!-- Затемнение видео -->
+  <div class="video-overlay"></div>
+  
+  <!-- Снегопад (генерируется скриптом) -->
+  <div id="snow-container"></div>
+  
+  <!-- Контент -->
+  <div class="hero-content">
+    <div class="max-w-4xl mx-auto px-4">
+      <!-- Заголовок RODINA ROLEPLAY -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-4 md:mb-6 animate-fade-in-up">
+        RODINA <span class="text-primary-red">ROLEPLAY</span>
+      </h1>
+      
+      <!-- Описание -->
+      <p class="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 mb-6 md:mb-8 animate-fade-in-up animation-delay-100">
+        Многопользовательская онлайн игра с огромным Открытым миром<br class="hidden sm:block">в котором ты можешь стать кем захочешь
+      </p>
+      
+      <!-- Кнопки -->
+      <div class="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center mt-8 md:mt-12 animate-fade-in-up animation-delay-200">
+        <a href="https://gamemonitoring.ru/unturned/servers/10706611/connect" 
+           target="_blank"
+           class="px-6 sm:px-8 md:px-10 py-4 md:py-5 bg-gradient-to-r from-primary-red to-accent-red text-white font-bold text-lg md:text-xl rounded-xl hover:shadow-2xl hover:shadow-primary-red/40 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 group relative overflow-hidden glow-on-hover">
+          <i class="bi bi-play-fill text-xl md:text-2xl"></i>
+          НАЧАТЬ ИГРУ
+          <i class="bi bi-arrow-right text-xl md:text-2xl group-hover:translate-x-2 transition-transform"></i>
+        </a>
+        
+        <a href="https://discord.gg/4ZmEmNzk" 
+           target="_blank"
+           class="px-6 sm:px-8 md:px-10 py-4 md:py-5 bg-[#5865F2] text-white font-bold text-lg md:text-xl rounded-xl hover:shadow-2xl hover:shadow-[#5865F2]/40 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 relative overflow-hidden glow-on-hover">
+          <i class="bi bi-discord text-xl md:text-2xl"></i>
+          DISCORD
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ОСТАЛЬНЫЕ СЕКЦИИ (не изменены) -->
+<div class="space-y-20 mb-20 container mx-auto px-4 pt-20">
+    <div class="relative reveal-on-scroll">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div class="relative z-10 order-2 md:order-1 animate-fade-in-left">
+                <h2 class="text-3xl font-bold text-white mb-4">Ролевая игра в российских реалиях</h2>
+                <p class="text-gray-300 mb-6 text-lg">
+                    Основная цель проекта — создать правдоподобную социальную среду для отыгрыша. Создание персонажа начинается с выбора имени, фамилии и пола. Дальнейшая же глубина и уникальность вашего героя полностью определяются вашими действиями, речами и социальными связями в игре.
+                </p>
+                <ul class="space-y-3 text-gray-400">
+                    <li class="flex items-center gap-3 list-item-animate" style="animation-delay: 0.1s;">
+                        <i class="bi bi-check-circle text-primary-red text-lg"></i>
+                        <span>Отыгрыш и взаимодействие в рамках российского социума</span>
+                    </li>
+                    <li class="flex items-center gap-3 list-item-animate" style="animation-delay: 0.2s;">
+                        <i class="bi bi-check-circle text-primary-red text-lg"></i>
+                        <span>Экономика, основанная на взаимодействии игроков</span>
+                    </li>
+                    <li class="flex items-center gap-3 list-item-animate" style="animation-delay: 0.3s;">
+                        <i class="bi bi-check-circle text-primary-red text-lg"></i>
+                        <span>Живые события и конфликты, формируемые сообществом</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="relative order-1 md:order-2 animate-fade-in-right">
+                <div class="absolute -top-6 -right-6 w-48 h-48 bg-primary-red/20 rounded-full blur-3xl floating-element" style="animation-delay: 0.5s;"></div>
+                <div class="relative rounded-2xl overflow-hidden border border-primary-red/30 shadow-2xl card-hover-effect">
+                    <img src="{{ site.baseurl }}/assets/img/mpo.png" 
+                         alt="Магазин премиальной одежды" 
+                         class="w-full h-64 md:h-80 object-cover hover:scale-110 transition-transform duration-700">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="gallery-section reveal-on-scroll">
+    <h2 class="gallery-title animate-fade-in-up">Скриншоты с сервера</h2>
+    
+    <div class="gallery-container">
+        <div class="gallery-slides" id="gallerySlides">
+            <div class="gallery-slide">
+                <div class="gallery-image-container">
+                    <img src="{{ site.baseurl }}/assets/img/carshop.png" alt="Магазин авто">
+                </div>
+            </div>
+            <div class="gallery-slide">
+                <div class="gallery-image-container">
+                    <img src="{{ site.baseurl }}/assets/img/fishing.png" alt="Рыбалка">
+                </div>
+            </div>
+            <div class="gallery-slide">
+                <div class="gallery-image-container">
+                    <img src="{{ site.baseurl }}/assets/img/kpp.png" alt="Локация">
+                </div>
+            </div>
+            <div class="gallery-slide">
+                <div class="gallery-image-container">
+                    <img src="{{ site.baseurl }}/assets/img/kpz.png" alt="Кафе">
+                </div>
+            </div>
+            <div class="gallery-slide">
+                <div class="gallery-image-container">
+                    <img src="{{ site.baseurl }}/assets/img/mpo.png" alt="Магазин премиальной одежды">
+                </div>
+            </div>
+            <div class="gallery-slide">
+                <div class="gallery-image-container">
+                    <img src="{{ site.baseurl }}/assets/img/rosgvardia.png" alt="Росгвардия">
+                </div>
+            </div>
+            <div class="gallery-slide">
+                <div class="gallery-image-container">
+                    <img src="{{ site.baseurl }}/assets/img/sberbank.png" alt="Сбербанк">
+                </div>
+            </div>
+            <div class="gallery-slide">
+                <div class="gallery-image-container">
+                    <img src="{{ site.baseurl }}/assets/img/sturm.png" alt="Штурм здания">
+                </div>
+            </div>
+        </div>
+        
+        <button class="gallery-btn gallery-btn-prev animate-fade-in-left" id="prevBtn">
+            <i class="bi bi-chevron-left"></i>
+        </button>
+        <button class="gallery-btn gallery-btn-next animate-fade-in-right" id="nextBtn">
+            <i class="bi bi-chevron-right"></i>
+        </button>
+    </div>
+    
+
+    <div class="gallery-indicators" id="galleryIndicators">
+        <div class="gallery-indicator active" data-index="0"></div>
+        <div class="gallery-indicator" data-index="1"></div>
+        <div class="gallery-indicator" data-index="2"></div>
+        <div class="gallery-indicator" data-index="3"></div>
+        <div class="gallery-indicator" data-index="4"></div>
+        <div class="gallery-indicator" data-index="5"></div>
+        <div class="gallery-indicator" data-index="6"></div>
+        <div class="gallery-indicator" data-index="7"></div>
+    </div>
+</div>
+
+<div class="relative reveal-on-scroll">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="relative animate-fade-in-left">
+            <div class="absolute -top-6 -left-6 w-48 h-48 bg-accent-red/20 rounded-full blur-3xl floating-element" style="animation-delay: 0.3s;"></div>
+            <div class="relative rounded-2xl overflow-hidden border border-primary-red/30 shadow-2xl card-hover-effect">
+                <img src="{{ site.baseurl }}/assets/img/sturm.png" 
+                     alt="Штурм здания" 
+                     class="w-full h-64 md:h-80 object-cover hover:scale-110 transition-transform duration-700">
+            </div>
+        </div>
+        <div class="relative z-10 animate-fade-in-right">
+            <h2 class="text-3xl font-bold text-white mb-4">Кастомизация и фракции</h2>
+            <p class="text-gray-300 mb-6 text-lg">
+                Внешний вид — отличный инструмент отыгрыша. На сервере доступна <strong class="gradient-text">огромная библиотека одежды и экипировки</strong>, которую можно приобрести за внутриигровую валюту, заработанную в процессе RP. Выбирайте путь: вступайте в официальные государственные структуры или идите в криминальные группировки — каждая фракция предлагает свой уникальный стиль и возможности.
+            </p>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-dark-bg/50 rounded-xl p-4 border border-gray-800 card-hover-effect reveal-on-scroll">
+                    <i class="bi bi-shield-check text-2xl text-primary-red mb-2"></i>
+                    <h4 class="font-bold text-white mb-1">Государственные структуры</h4>
+                    <p class="text-sm text-gray-400">Правоохранительные органы, медики, адвокаты</p>
+                </div>
+                <div class="bg-dark-bg/50 rounded-xl p-4 border border-gray-800 card-hover-effect reveal-on-scroll" style="animation-delay: 0.2s;">
+                    <i class="bi bi-shield-exclamation text-2xl text-accent-red mb-2"></i>
+                    <h4 class="font-bold text-white mb-1">Криминальные группировки</h4>
+                    <p class="text-sm text-gray-400">Банды, наркотики, черный рынок</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cta-section reveal-on-scroll">
+    <div class="cta-bg"></div>
+    
+    <div class="cta-content">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6 animate-fade-in-up">Готовы начать игру?</h2>
+        <p class="text-lg md:text-xl text-gray-300 mb-6 md:mb-8 max-w-full md:max-w-2xl animate-fade-in-up animation-delay-100">
+            Присоединяйтесь к проекту, где ролевая игра строится вокруг России и её социальной структуры. Создайте персонажа, найдите свою фракцию, зарабатывайте на кастомизацию и станьте частью истории.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 md:gap-6">
+            <a href="https://gamemonitoring.ru/unturned/servers/10706611/connect" 
+               target="_blank"
+               class="px-6 py-3 md:px-10 md:py-4 bg-gradient-to-r from-primary-red to-accent-red text-white font-bold rounded-xl hover:shadow-2xl hover:shadow-primary-red/40 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 text-sm md:text-base glow-on-hover animate-fade-in-up animation-delay-200">
+                <i class="bi bi-controller text-lg md:text-xl"></i>
+                Начать игру
+            </a>
+            <a href="{{ site.baseurl }}/rules/general/" 
+               class="px-6 py-3 md:px-10 md:py-4 bg-dark-bg border-2 border-primary-red text-white font-bold rounded-xl hover:bg-primary-red/10 transition-all duration-300 flex items-center justify-center gap-3 text-sm md:text-base glow-on-hover animate-fade-in-up animation-delay-300">
+                <i class="bi bi-book text-lg md:text-xl"></i>
+                Правила
+            </a>
+        </div>
+    </div>
+    
+    <div class="cta-image-container animate-float-dude">
+        <img src="{{ site.baseurl }}/assets/img/dude.png" alt="Персонаж">
+    </div>
+</div>
+
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
-        
-        mobileMenuButton.addEventListener('click', function(e) {
-            e.stopPropagation();
-            mobileMenu.classList.toggle('hidden');
-            mobileMenuIcon.classList.toggle('bi-list');
-            mobileMenuIcon.classList.toggle('bi-x');
-        });
-        
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                mobileMenu.classList.add('hidden');
-                mobileMenuIcon.classList.remove('bi-x');
-                mobileMenuIcon.classList.add('bi-list');
-            });
-        });
-        
-        const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
-        submenuToggles.forEach(toggle => {
-            toggle.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const submenuContent = this.nextElementSibling;
-                const chevronIcon = this.querySelector('.bi-chevron-right');
-                
-                submenuContent.classList.toggle('hidden');
-                chevronIcon.classList.toggle('rotate-90');
-                
-                submenuToggles.forEach(otherToggle => {
-                    if (otherToggle !== this) {
-                        const otherContent = otherToggle.nextElementSibling;
-                        const otherChevron = otherToggle.querySelector('.bi-chevron-right');
-                        otherContent.classList.add('hidden');
-                        otherChevron.classList.remove('rotate-90');
-                    }
-                });
-            });
-        });
-        
-        document.addEventListener('click', function(event) {
-            if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
-                mobileMenu.classList.add('hidden');
-                mobileMenuIcon.classList.remove('bi-x');
-                mobileMenuIcon.classList.add('bi-list');
-                
-                document.querySelectorAll('.mobile-submenu-content').forEach(content => {
-                    content.classList.add('hidden');
-                });
-                document.querySelectorAll('.bi-chevron-right').forEach(chevron => {
-                    chevron.classList.remove('rotate-90');
-                });
-            }
-        });
-        
-        window.addEventListener('resize', function() {
-            if (window.innerWidth >= 768) {
-                mobileMenu.classList.add('hidden');
-                mobileMenuIcon.classList.remove('bi-x');
-                mobileMenuIcon.classList.add('bi-list');
-            }
-        });
+  // Снегопад - улучшенная версия
+  function createSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    
+    // Случайный размер от 2 до 6px
+    const size = Math.random() * 4 + 2;
+    snowflake.style.width = `${size}px`;
+    snowflake.style.height = `${size}px`;
+    
+    // Позиция сверху слева
+    snowflake.style.left = `${Math.random() * 100}%`;
+    snowflake.style.top = '-10px';
+    
+    // Случайная анимация
+    const duration = Math.random() * 8 + 5; // от 5 до 13 секунд
+    const delay = Math.random() * 3;
+    const endX = Math.random() * 100 - 50; // от -50px до 50px
+    
+    snowflake.style.animation = `snowfall ${duration}s linear ${delay}s infinite`;
+    snowflake.style.setProperty('--end-x', `${endX}px`);
+    
+    // Случайная прозрачность
+    snowflake.style.opacity = Math.random() * 0.8 + 0.2;
+    
+    document.getElementById('snow-container').appendChild(snowflake);
+    
+    // Удаление снежинки после завершения анимации
+    setTimeout(() => {
+      if (snowflake.parentNode) {
+        snowflake.remove();
+      }
+    }, (duration + delay) * 1000);
+  }
+
+  // Создание снежинок с контролем количества
+  function createSnowfall() {
+    // Очистить контейнер
+    document.getElementById('snow-container').innerHTML = '';
+    
+    // Создать начальные снежинки
+    for (let i = 0; i < 50; i++) {
+      setTimeout(() => createSnowflake(), Math.random() * 1000);
+    }
+    
+    // Продолжать создавать снежинки с интервалом
+    setInterval(() => {
+      const snowCount = document.getElementById('snow-container').childElementCount;
+      if (snowCount < 100) { // Максимум 100 снежинок
+        createSnowflake();
+      }
+    }, 200);
+  }
+
+  // Галерея
+  document.addEventListener('DOMContentLoaded', function() {
+    const gallerySlides = document.getElementById('gallerySlides');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const indicators = document.querySelectorAll('.gallery-indicator');
+    
+    let currentSlide = 0;
+    const totalSlides = 8;
+    
+    function updateCarousel() {
+      gallerySlides.style.transform = `translateX(-${currentSlide * 100}%)`;
+      
+      indicators.forEach((indicator, index) => {
+        indicator.classList.toggle('active', index === currentSlide);
+      });
+    }
+    
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateCarousel();
+    }
+    
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateCarousel();
+    }
+    
+    function goToSlide(index) {
+      currentSlide = index;
+      updateCarousel();
+    }
+    
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => goToSlide(index));
     });
+    
+    let autoSlideInterval = setInterval(nextSlide, 5000);
+    
+    const galleryContainer = document.querySelector('.gallery-container');
+    galleryContainer.addEventListener('mouseenter', () => {
+      clearInterval(autoSlideInterval);
+    });
+    
+    galleryContainer.addEventListener('mouseleave', () => {
+      autoSlideInterval = setInterval(nextSlide, 5000);
+    });
+    
+    updateCarousel();
+
+    // Анимации при скролле
+    const revealElements = document.querySelectorAll('.reveal-on-scroll');
+    
+    const revealOnScroll = function() {
+      revealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('visible');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+
+    // Запуск снегопада
+    createSnowfall();
+
+    // Дополнительные анимации
+    const listItems = document.querySelectorAll('.list-item-animate');
+    listItems.forEach((item, index) => {
+      item.style.animationDelay = `${0.1 * (index + 1)}s`;
+    });
+
+    const floatingElements = document.querySelectorAll('.floating-element');
+    floatingElements.forEach((element, index) => {
+      if (!element.style.animationDelay) {
+        element.style.animationDelay = `${0.2 * index}s`;
+      }
+    });
+
+    // Адаптация видео для мобильных устройств
+    function adjustVideoForMobile() {
+      const video = document.querySelector('.video-background video');
+      if (window.innerWidth < 768) {
+        video.style.objectPosition = 'center';
+      } else {
+        video.style.objectPosition = 'center';
+      }
+    }
+    
+    window.addEventListener('resize', adjustVideoForMobile);
+    adjustVideoForMobile();
+
+    // Фикс для отступов после фиксированного навбара
+    function adjustContentPadding() {
+      const header = document.querySelector('header');
+      const mainContent = document.querySelector('.space-y-20');
+      if (header && mainContent) {
+        const headerHeight = header.offsetHeight;
+        mainContent.style.paddingTop = `${headerHeight + 20}px`;
+      }
+    }
+    
+    window.addEventListener('resize', adjustContentPadding);
+    window.addEventListener('load', adjustContentPadding);
+    setTimeout(adjustContentPadding, 100);
+
+    setTimeout(() => {
+      document.body.classList.add('loaded');
+    }, 100);
+  });
 </script>
