@@ -147,7 +147,6 @@ permalink: /
 
   .hero-section {
     height: 100vh;
-    position: relative;
     overflow: hidden;
   }
 
