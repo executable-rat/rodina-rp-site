@@ -1,11 +1,26 @@
 ---
 ---
-@import "footer";
-@import "page_map";
-@import "page";
-@import "landing";
-@import "map";
-@import "head";
-@import "header";
-@import "error";
-@import "back-to-top";
+
+@import "footer.scss";
+@import "page_map.scss";
+@import "page.scss";
+@import "landing.scss";
+@import "map.scss";
+@import "head.scss ";
+@import "header.scss";
+@import "error.scss";
+@import "back-to-top.scss";
+
+
+
+/*
+@use "footer";
+@use "page_map";
+@use "page";
+@use "landing";
+@use "map";
+@use "head ";
+@use "header";
+@use "error";
+@use "back-to-top";
+*/
