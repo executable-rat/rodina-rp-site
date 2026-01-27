@@ -13,7 +13,7 @@ permalink: /
     class="hero-video"
     aria-hidden="true"
   >
-    <source src="https://assets.mixkit.co/videos/41576/41576-720.mp4" type="video/mp4">
+    <source src="{{ site.baseurl }}/assets/video/background.webm" type="video/webm" loading="lazy">
   </video>
   
   <div class="hero-overlay" aria-hidden="true"></div>
@@ -83,99 +83,100 @@ permalink: /
         </div>
         <div class="russian-realities-image">
           <div class="russian-realities-image-container">
-            <img src="{{ site.baseurl }}/assets/img/mpo.png" alt="Магазин премиальной одежды">
+            <img src="{{ site.baseurl }}/assets/img/mpo.webp" loading="lazy" alt="Магазин премиальной одежды">
           </div>
         </div>
       </div>
     </section>
 
-  <section class="screenshots-section">
-    <h2 class="screenshots-title">Скриншоты с сервера</h2>
-    <div class="screenshots-gallery">
-      <div class="screenshots-slides" id="screenshotsSlides">
-        <div class="screenshot-slide">
-          <img src="{{ site.baseurl }}/assets/img/carshop.png" alt="Магазин авто">
-          <div class="screenshot-info">
-            <h3>Автосалон</h3>
-            <p>Широкий выбор транспортных средств для игроков</p>
+    <section class="screenshots-section">
+      <h2 class="screenshots-title">Скриншоты с сервера</h2>
+      <div class="screenshots-gallery">
+        <div class="screenshots-slides" id="screenshotsSlides">
+          <div class="screenshot-slide">
+            <img src="{{ site.baseurl }}/assets/img/carshop.webp" loading="lazy" alt="Магазин авто">
+            <div class="screenshot-info">
+              <h3>Автосалон</h3>
+              <p>Широкий выбор транспортных средств для игроков</p>
+            </div>
+          </div>
+          <div class="screenshot-slide">
+            <img src="{{ site.baseurl }}/assets/img/fishing.webp" loading="lazy" alt="Рыбалка">
+            <div class="screenshot-info">
+              <h3>Рыбалка</h3>
+              <p>Спокойный отдых на природе с возможностью заработка</p>
+            </div>
+          </div>
+          <div class="screenshot-slide">
+            <img src="{{ site.baseurl }}/assets/img/kpp.webp" loading="lazy" alt="Локация">
+            <div class="screenshot-info">
+              <h3>Контрольный пункт</h3>
+              <p>Стратегические точки на карте для контроля территории</p>
+            </div>
+          </div>
+          <div class="screenshot-slide">
+            <img src="{{ site.baseurl }}/assets/img/kpz.webp" loading="lazy" alt="Кафе">
+            <div class="screenshot-info">
+              <h3>Кафе "КПЗ"</h3>
+              <p>Место для новых встреч и ролевых взаимодействий</p>
+            </div>
+          </div>
+          <div class="screenshot-slide">
+            <img src="{{ site.baseurl }}/assets/img/mpo.webp" loading="lazy" alt="Магазин премиальной одежды">
+            <div class="screenshot-info">
+              <h3>Премиальная одежда</h3>
+              <p>Эксклюзивные вещи для кастомизации персонажа</p>
+            </div>
+          </div>
+          <div class="screenshot-slide">
+            <img src="{{ site.baseurl }}/assets/img/rosgvardia.webp" loading="lazy" alt="Росгвардия">
+            <div class="screenshot-info">
+              <h3>Росгвардия</h3>
+              <p>Здание правоохранительных органов</p>
+            </div>
+          </div>
+          <div class="screenshot-slide">
+            <img src="{{ site.baseurl }}/assets/img/sberbank.webp" loading="lazy" alt="Сбербанк">
+            <div class="screenshot-info">
+              <h3>Сбербанк</h3>
+              <p>Финансовый центр для хранения и "приумножения" средств</p>
+            </div>
+          </div>
+          <div class="screenshot-slide">
+            <img src="{{ site.baseurl }}/assets/img/sturm.webp" loading="lazy" alt="Штурм здания">
+            <div class="screenshot-info">
+              <h3>Тактические операции</h3>
+              <p>Интенсивные моменты игрового процесса</p>
+            </div>
           </div>
         </div>
-        <div class="screenshot-slide">
-          <img src="{{ site.baseurl }}/assets/img/fishing.png" alt="Рыбалка">
-          <div class="screenshot-info">
-            <h3>Рыбалка</h3>
-            <p>Спокойный отдых на природе с возможностью заработка</p>
-          </div>
-        </div>
-        <div class="screenshot-slide">
-          <img src="{{ site.baseurl }}/assets/img/kpp.png" alt="Локация">
-          <div class="screenshot-info">
-            <h3>Контрольный пункт</h3>
-            <p>Стратегические точки на карте для контроля территории</p>
-          </div>
-        </div>
-        <div class="screenshot-slide">
-          <img src="{{ site.baseurl }}/assets/img/kpz.png" alt="Кафе">
-          <div class="screenshot-info">
-            <h3>Кафе "КПЗ"</h3>
-            <p>Место для новых встреч и ролевых взаимодействий</p>
-          </div>
-        </div>
-        <div class="screenshot-slide">
-          <img src="{{ site.baseurl }}/assets/img/mpo.png" alt="Магазин премиальной одежды">
-          <div class="screenshot-info">
-            <h3>Премиальная одежда</h3>
-            <p>Эксклюзивные вещи для кастомизации персонажа</p>
-          </div>
-        </div>
-        <div class="screenshot-slide">
-          <img src="{{ site.baseurl }}/assets/img/rosgvardia.png" alt="Росгвардия">
-          <div class="screenshot-info">
-            <h3>Росгвардия</h3>
-            <p>Здание правоохранительных органов</p>
-          </div>
-        </div>
-        <div class="screenshot-slide">
-          <img src="{{ site.baseurl }}/assets/img/sberbank.png" alt="Сбербанк">
-          <div class="screenshot-info">
-            <h3>Сбербанк</h3>
-            <p>Финансовый центр для хранения и "приумножения" средств</p>
-          </div>
-        </div>
-        <div class="screenshot-slide">
-          <img src="{{ site.baseurl }}/assets/img/sturm.png" alt="Штурм здания">
-          <div class="screenshot-info">
-            <h3>Тактические операции</h3>
-            <p>Интенсивные моменты игрового процесса</p>
-          </div>
-        </div>
+        
+        <button class="screenshot-nav screenshot-nav-prev" id="screenshotPrevBtn">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+        <button class="screenshot-nav screenshot-nav-next" id="screenshotNextBtn">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+        
+        <div class="screenshot-counter" id="screenshotCounter">1 / 8</div>
       </div>
       
-      <button class="screenshot-nav screenshot-nav-prev" id="screenshotPrevBtn">
-        <i class="bi bi-chevron-left"></i>
-      </button>
-      <button class="screenshot-nav screenshot-nav-next" id="screenshotNextBtn">
-        <i class="bi bi-chevron-right"></i>
-      </button>
-      
-      <div class="screenshot-counter" id="screenshotCounter">1 / 8</div>
-    </div>
+      <div class="screenshot-indicators" id="screenshotIndicators">
+        <div class="screenshot-indicator active" data-index="0"></div>
+        <div class="screenshot-indicator" data-index="1"></div>
+        <div class="screenshot-indicator" data-index="2"></div>
+        <div class="screenshot-indicator" data-index="3"></div>
+        <div class="screenshot-indicator" data-index="4"></div>
+        <div class="screenshot-indicator" data-index="5"></div>
+        <div class="screenshot-indicator" data-index="6"></div>
+        <div class="screenshot-indicator" data-index="7"></div>
+      </div>
+    </section>
     
-    <div class="screenshot-indicators" id="screenshotIndicators">
-      <div class="screenshot-indicator active" data-index="0"></div>
-      <div class="screenshot-indicator" data-index="1"></div>
-      <div class="screenshot-indicator" data-index="2"></div>
-      <div class="screenshot-indicator" data-index="3"></div>
-      <div class="screenshot-indicator" data-index="4"></div>
-      <div class="screenshot-indicator" data-index="5"></div>
-      <div class="screenshot-indicator" data-index="6"></div>
-      <div class="screenshot-indicator" data-index="7"></div>
-    </div>
-  </section>
     <section class="customization-section">
       <div class="customization-grid">
         <div class="customization-image-container">
-          <img src="{{ site.baseurl }}/assets/img/sturm.png" alt="Штурм здания">
+          <img src="{{ site.baseurl }}/assets/img/sturm.webp" loading="lazy" alt="Штурм здания">
         </div>
         <div class="customization-content">
           <h2 class="customization-title">Кастомизация и фракции</h2>

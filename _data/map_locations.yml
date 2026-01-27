@@ -8,7 +8,7 @@ map_settings:
   max_zoom: 2.5
   
   use_custom_image: true
-  custom_image_url: "/rodina-rp-site/assets/img/map.jpg"
+  custom_image_url: "/rodina-rp-site/assets/img/map.webp"
   custom_image_bounds: [[0, 0], [5986, 6471]]  # [ЮЗ, СВ]
 
 locations:

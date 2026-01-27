@@ -1,8 +1,84 @@
 <!DOCTYPE html>
 <html lang="ru" class="scroll-smooth">
 <head>
+    <meta name="google-site-verification" content="oszP5Xa_6DV9jyvvykj0HuRCf_1YqwxqkkKyYY3MSwg" />
     {% include head.html %}
 </head>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const specificImages = [
+    ...document.querySelectorAll('.russian-realities-image-container img[loading="lazy"]'),
+    ...document.querySelectorAll('.customization-image-container img[loading="lazy"]'),
+    ...document.querySelectorAll('.screenshot-slide img[loading="lazy"]')
+  ];
+  
+  if (specificImages.length === 0) return;
+  
+  function handleImageLoad(img) {
+    img.classList.add('loaded');
+  }
+  
+  specificImages.forEach(img => {
+    if (img.complete) {
+      handleImageLoad(img);
+    } else {
+      img.addEventListener('load', function() {
+        handleImageLoad(this);
+      });
+      
+      img.addEventListener('error', function() {
+        handleImageLoad(this);
+      });
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = document.getElementById('screenshotsSlides');
+  const prevBtn = document.getElementById('screenshotPrevBtn');
+  const nextBtn = document.getElementById('screenshotNextBtn');
+  const indicators = document.querySelectorAll('.screenshot-indicator');
+  const counter = document.getElementById('screenshotCounter');
+  
+  if (!slides) return;
+  
+  let currentSlide = 0;
+  const totalSlides = document.querySelectorAll('.screenshot-slide').length;
+  
+  function updateSlider() {
+    slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+    
+    indicators.forEach((indicator, index) => {
+      indicator.classList.toggle('active', index === currentSlide);
+    });
+    
+    counter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+  }
+  
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    });
+  }
+  
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    });
+  }
+  
+  indicators.forEach(indicator => {
+    indicator.addEventListener('click', () => {
+      currentSlide = parseInt(indicator.getAttribute('data-index'));
+      updateSlider();
+    });
+  });
+});
+</script>
+
 <body class="bg-dark-bg text-gray-100 min-h-screen flex flex-col">
     {% include header.html %}
     
