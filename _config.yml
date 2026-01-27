@@ -14,8 +14,12 @@ exclude:
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
 
-
+sitemap:
+  changefreq: 'weekly'
+  priority: 0.8
+  
 permalink: pretty
 
 sass:
