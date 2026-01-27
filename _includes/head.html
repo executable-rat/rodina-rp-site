@@ -5,7 +5,23 @@
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-    
+
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}РОЛЕВОЙ ПРОЕКТ RODINA RP в Unturned. Российская ролевая игра, законы, фракции, интерактивная карта.{% endif %}">
+    <meta name="keywords" content="unturned, ролевая игра, rp, российский сервер, rodina, правила, законы, карта">
+    <meta name="author" content="RODINA RP">
+
+    <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}">
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}Ролевой проект в Unturned • Нижегородская область{% endif %}">
+    <meta property="og:image" content="{{ site.url }}/assets/images/kpz.png">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="RODINA RP">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}">
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}Ролевой проект в Unturned{% endif %}">
+    <meta name="twitter:image" content="{{ site.url }}/assets/images/kpz.png">
+
     <script>
         tailwind.config = {
             theme: {
