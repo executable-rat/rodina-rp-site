@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Фракция
+title: Чужие
 parent: Фракции и Семьи
 permalink: /factions/chuzhie/
 ---

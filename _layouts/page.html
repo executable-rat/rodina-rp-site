@@ -2,50 +2,53 @@
 layout: default
 ---
 
-<article class="max-w-4xl mx-auto px-4 py-8">
-    <nav class="text-sm text-gray-400 mb-6" aria-label="Навигация">
-        <ol class="flex items-center space-x-2">
-            <li><a href="{{ '/' | relative_url }}" class="hover:text-light-red transition-colors">Главная</a></li>
-            <li><span class="text-gray-600 mx-2">/</span></li>
-            {% if page.parent %}
-            <li>
-                <a href="{% if page.parent == 'Правила проекта' %}{{ '/rules/' | relative_url }}{% elsif page.parent == 'Законодательство' %}{{ '/laws/' | relative_url }}{% elsif page.parent == 'Фракции и Семьи' %}{{ '/factions/' | relative_url }}{% else %}#{% endif %}" 
-                   class="hover:text-light-red transition-colors">
-                    {{ page.parent }}
-                </a>
-            </li>
-            <li><span class="text-gray-600 mx-2">/</span></li>
-            {% endif %}
-            <li class="text-light-red font-medium">{{ page.title }}</li>
-        </ol>
+<div class="internal-content-background my-8">
+  <div class="internal-content-container">
+    
+    <nav class="breadcrumb-nav" aria-label="Навигация">
+      <ol>
+        <li>
+          <a href="{{ '/' | relative_url }}">Главная</a>
+        </li>
+        <li class="breadcrumb-separator">/</li>
+        {% if page.parent %}
+        <li>
+          <a href="{% if page.parent == 'Правила проекта' %}{{ '/rules/' | relative_url }}{% elsif page.parent == 'Законодательство' %}{{ '/laws/' | relative_url }}{% elsif page.parent == 'Фракции и Семьи' %}{{ '/factions/' | relative_url }}{% else %}#{% endif %}">
+            {{ page.parent }}
+          </a>
+        </li>
+        <li class="breadcrumb-separator">/</li>
+        {% endif %}
+        <li class="breadcrumb-current">{{ page.title }}</li>
+      </ol>
     </nav>
 
-    <header class="mb-8 pb-6 border-b border-gray-800">
-        <h1 class="text-3xl md:text-4xl font-bold text-white mb-3">{{ page.title }}</h1>
-        {% if page.description %}
-        <p class="text-lg text-gray-300">{{ page.description }}</p>
-        {% endif %}
+    <header class="page-header">
+      <h1 class="page-title">{{ page.title }}</h1>
+      {% if page.description %}
+      <p class="page-description">{{ page.description }}</p>
+      {% endif %}
     </header>
 
-    <div class="prose prose-lg prose-invert max-w-none">
-        <div class="prose-headings:text-white prose-p:text-gray-300 prose-li:text-gray-300">
-            {{ content }}
-        </div>
+    <div class="prose-content">
+      {{ content }}
     </div>
 
-    <div class="mt-12 pt-6 border-t border-gray-800">
-        <div class="flex justify-between">
-            <a href="{{ '/' | relative_url }}" class="flex items-center gap-2 text-gray-400 hover:text-light-red transition-colors">
-                <div data-heroicon="ArrowLeftIcon" class="w-5 h-5"></div>
-                На главную
-            </a>
-            {% if page.parent %}
-            <a href="{% if page.parent == 'Правила проекта' %}{{ '/rules/' | relative_url }}{% elsif page.parent == 'Законодательство' %}{{ '/laws/' | relative_url }}{% elsif page.parent == 'Фракции и Семьи' %}{{ '/factions/' | relative_url }}{% else %}#{% endif %}" 
-               class="flex items-center gap-2 text-gray-400 hover:text-light-red transition-colors">
-                К списку разделов
-                <div data-heroicon="ArrowRightIcon" class="w-5 h-5"></div>
-            </a>
-            {% endif %}
-        </div>
+    <div class="page-footer-nav">
+      <div class="footer-nav-links">
+        <a href="{{ '/' | relative_url }}" class="footer-nav-link">
+          <i class="bi bi-arrow-left"></i>
+          На главную
+        </a>
+        {% if page.parent %}
+        <a href="{% if page.parent == 'Правила проекта' %}{{ '/rules/' | relative_url }}{% elsif page.parent == 'Законодательство' %}{{ '/laws/' | relative_url }}{% elsif page.parent == 'Фракции и Семьи' %}{{ '/factions/' | relative_url }}{% else %}#{% endif %}" 
+           class="footer-nav-link">
+          К списку разделов
+          <i class="bi bi-arrow-right"></i>
+        </a>
+        {% endif %}
+      </div>
     </div>
-</article>
+
+  </div>
+</div>

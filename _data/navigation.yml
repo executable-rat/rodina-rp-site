@@ -2,8 +2,8 @@ main:
   - title: "Главная"
     url: "/"
     icon: "house"
-    
-  - title: "Правила проекта"
+
+  - title: "Правила"
     url: "/rules/"
     icon: "journal-text"
     subitems:
@@ -58,7 +58,7 @@ main:
         url: "/laws/health-law/"
         icon: "file-earmark-font-fill"
 
-  - title: "Фракции и Семьи"
+  - title: "Фракции"
     url: "/factions/"
     icon: "buildings"
     subitems:
@@ -89,3 +89,14 @@ main:
       - title: "Семья Филина"
         url: "/factions/filina-family/"
         icon: "house-heart"
+
+  - title: "Прочее"
+    url: "#"
+    icon: "bookmark-check-fill"
+    subitems:
+      - title: "Карта"
+        url: "/map/"
+        icon: "globe-central-south-asia"
+      - title: "Boosty"
+        url: "https://boosty.to/virysrevivalrp"
+        icon: "coin"

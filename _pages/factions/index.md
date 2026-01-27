@@ -9,7 +9,7 @@ permalink: /factions/
     <div class="space-y-4">
       <div class="flex items-center gap-3 mb-4">
         <i class="bi bi-shield-check text-2xl text-primary-red"></i>
-        <h2 class="text-xl md:text-2xl font-semibold text-white">Государственные структуры:</h2>
+        <h1 class="text-xl md:text-2xl font-semibold text-white">Государственные структуры:</h1>
       </div>
       
       <div class="space-y-3 pl-4">
@@ -49,7 +49,7 @@ permalink: /factions/
     <div class="space-y-4">
       <div class="flex items-center gap-3 mb-4">
         <i class="bi bi-shield-exclamation text-2xl text-accent-red"></i>
-        <h2 class="text-xl md:text-2xl font-semibold text-white">Криминальные формирования:</h2>
+        <h1 class="text-xl md:text-2xl font-semibold text-white">Криминальные формирования:</h1>
       </div>
       
       <div class="space-y-3 pl-4">

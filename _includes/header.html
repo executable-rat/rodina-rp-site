@@ -1,4 +1,4 @@
-<header class="sticky top-4 z-50 w-full px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8">
+<header class="fixed top-4 z-50 w-full px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8">
     <div class="bg-gradient-to-r from-primary-dark to-dark-bg border border-primary-red/30 rounded-xl backdrop-blur-md bg-opacity-80 shadow-2xl">
         <nav class="container mx-auto max-w-full relative">
             <div class="flex items-center justify-between h-16 min-w-0 px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8">
@@ -35,44 +35,44 @@
                                 <i class="bi bi-heart-fill text-xs sm:text-sm md:text-base flex-shrink-0"></i>
                                 <span class="truncate lg:inline hidden">Донат</span>
                             </a>
-                            
-                            <a href="https://boosty.to/virysrevivalrp" 
-                               target="_blank"
-                               class="flex items-center gap-1 sm:gap-1.5 md:gap-2 px-1.5 sm:px-2 md:px-2.5 py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap
-                                      text-gray-400 hover:text-white hover:bg-primary-red/10">
-                                <i class="bi bi-lightning-charge text-xs sm:text-sm md:text-base flex-shrink-0"></i>
-                                <span class="truncate lg:inline hidden">Boosty</span>
-                            </a>
                         </div>
                         
                         {% for item in site.data.navigation.main offset:1 %}
                         <div class="relative group flex-shrink-0">
-                            <a href="{{ item.url | relative_url }}" 
-                               class="flex items-center gap-1 sm:gap-1.5 md:gap-2 px-1.5 sm:px-2 md:px-2.5 py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap
-                                      {% if page.url == item.url %}
-                                      bg-primary-red/20 text-accent-red
-                                      {% else %}
-                                      text-gray-400 hover:text-white hover:bg-primary-red/10
-                                      {% endif %}">
-                                {% if item.icon %}
-                                <i class="bi bi-{{ item.icon }} text-xs sm:text-sm md:text-base flex-shrink-0"></i>
-                                {% endif %}
-                                <span class="truncate lg:inline hidden">{{ item.title }}</span>
+                            <div class="flex items-center">
+                                <a href="{{ item.url | relative_url }}" 
+                                class="flex items-center gap-1 sm:gap-1.5 md:gap-2 px-1.5 sm:px-2 md:px-2.5 py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap
+                                        {% if page.url == item.url %}
+                                        bg-primary-red/20 text-accent-red
+                                        {% else %}
+                                        text-gray-400 hover:text-white hover:bg-primary-red/10
+                                        {% endif %}">
+                                    {% if item.icon %}
+                                    <i class="bi bi-{{ item.icon }} text-xs sm:text-sm md:text-base flex-shrink-0"></i>
+                                    {% endif %}
+                                    <span class="truncate lg:inline hidden">{{ item.title }}</span>
+                                </a>
+                                
                                 {% if item.subitems %}
-                                <i class="bi bi-chevron-down text-xs flex-shrink-0 ml-0.5 sm:ml-1"></i>
+                                <button class="desktop-submenu-toggle p-1 text-gray-400 hover:text-white transition-colors duration-300"
+                                        aria-label="Открыть подменю">
+                                    <i class="bi bi-chevron-down text-xs flex-shrink-0"></i>
+                                </button>
                                 {% endif %}
-                            </a>
+                            </div>
                             
                             {% if item.subitems %}
-                            <div class="absolute left-auto right-0 top-full mt-1 min-w-[280px] md:min-w-[320px] bg-dark-bg/95 backdrop-blur-md rounded-xl shadow-2xl 
-                                        opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-                                        transition-all duration-300 border border-primary-red/30 z-[9999] overflow-hidden transform translate-y-0
-                                        max-w-[calc(100vw-2rem)] xl:max-w-none xl:left-0 xl:right-auto">
+                            <div class="absolute top-full mt-1 min-w-[280px] md:min-w-[320px] bg-dark-bg/95 backdrop-blur-md rounded-xl shadow-2xl 
+                                        opacity-0 invisible border border-primary-red/30 z-[9999] overflow-hidden
+                                        max-w-[calc(100vw-2rem)] 
+                                        right-0 
+                                        lg:right-auto lg:left-0
+                                        {% if forloop.last %}lg:left-auto lg:right-0{% endif %}">
                                 <div class="p-3">
                                     {% for subitem in item.subitems %}
                                     <a href="{{ subitem.url | relative_url }}" 
-                                       class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-red/20 
-                                              transition-all duration-300 group/item min-w-0">
+                                    class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-red/20 
+                                            transition-all duration-300 group/item min-w-0">
                                         <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary-red/10 flex-shrink-0 min-w-[2rem]">
                                             <i class="bi bi-{{ subitem.icon }} text-primary-red flex-shrink-0"></i>
                                         </div>
@@ -96,12 +96,6 @@
                         <i class="bi bi-heart-fill text-base sm:text-lg"></i>
                     </a>
                     
-                    <a href="https://boosty.to/virysrevivalrp" 
-                       target="_blank"
-                       class="p-1.5 sm:p-2 text-gray-400 hover:text-white hover:bg-primary-red/10 rounded-lg transition-all duration-300">
-                        <i class="bi bi-lightning-charge text-base sm:text-lg"></i>
-                    </a>
-                    
                     <button id="mobile-menu-button" class="p-1.5 sm:p-2 text-gray-400 hover:text-white hover:bg-primary-red/10 rounded-lg transition-all duration-300">
                         <i id="mobile-menu-icon" class="bi bi-list text-lg sm:text-xl"></i>
                     </button>
@@ -109,12 +103,12 @@
             </div>
         </nav>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-dark-bg/95 backdrop-blur-md border-t border-primary-red/30 transition-all duration-300 ease-in-out w-full absolute top-full left-0 right-0 z-[9999] shadow-2xl">
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-bg/95 backdrop-blur-md border-t border-primary-red/30 transition-all duration-300 ease-in-out w-full absolute top-full left-0 right-0 z-[9999] shadow-2xl rounded-xl">
             <div class="container mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 py-4 max-w-full">
                 {% assign first_item = site.data.navigation.main | first %}
                 <div class="mb-2">
                     <a href="{{ first_item.url | relative_url }}" 
-                       class="flex items-center justify-between px-4 py-3 rounded-lg {% if page.url == first_item.url %}bg-primary-red/20 text-accent-red{% else %}text-gray-400 hover:text-white hover:bg-primary-red/10{% endif %} transition-all duration-300">
+                    class="flex items-center justify-between px-4 py-3 rounded-lg {% if page.url == first_item.url %}bg-primary-red/20 text-accent-red{% else %}text-gray-400 hover:text-white hover:bg-primary-red/10{% endif %} transition-all duration-300">
                         <div class="flex items-center gap-3 min-w-0">
                             {% if first_item.icon %}<i class="bi bi-{{ first_item.icon }} flex-shrink-0"></i>{% endif %}
                             <span class="font-medium truncate">{{ first_item.title }}</span>
@@ -125,22 +119,11 @@
                 <div class="mb-4">
                     <div class="mb-2">
                         <a href="https://rodinaroleplay.gamestores.app/" 
-                           target="_blank"
-                           class="flex items-center justify-between px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-primary-red/10 transition-all duration-300">
+                        target="_blank"
+                        class="flex items-center justify-between px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-primary-red/10 transition-all duration-300">
                             <div class="flex items-center gap-3 min-w-0">
                                 <i class="bi bi-heart-fill flex-shrink-0"></i>
                                 <span class="font-medium truncate">Донат</span>
-                            </div>
-                        </a>
-                    </div>
-                    
-                    <div class="mb-2">
-                        <a href="https://boosty.to/virysrevivalrp" 
-                           target="_blank"
-                           class="flex items-center justify-between px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-primary-red/10 transition-all duration-300">
-                            <div class="flex items-center gap-3 min-w-0">
-                                <i class="bi bi-lightning-charge flex-shrink-0"></i>
-                                <span class="font-medium truncate">Boosty</span>
                             </div>
                         </a>
                     </div>
@@ -160,7 +143,7 @@
                         <div class="mobile-submenu-content hidden mt-1 ml-4 pl-4 border-l border-primary-red/20">
                             {% for subitem in item.subitems %}
                             <a href="{{ subitem.url | relative_url }}" 
-                               class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-primary-red/10 transition-all duration-300 min-w-0">
+                            class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-primary-red/10 transition-all duration-300 min-w-0">
                                 <div class="w-6 h-6 flex items-center justify-center rounded-lg bg-primary-red/10 flex-shrink-0 min-w-[1.5rem]">
                                     <i class="bi bi-{{ subitem.icon }} text-primary-red text-sm flex-shrink-0"></i>
                                 </div>
@@ -171,7 +154,7 @@
                     </div>
                     {% else %}
                     <a href="{{ item.url | relative_url }}" 
-                       class="flex items-center justify-between px-4 py-3 rounded-lg {% if page.url == item.url %}bg-primary-red/20 text-accent-red{% else %}text-gray-400 hover:text-white hover:bg-primary-red/10{% endif %} transition-all duration-300 min-w-0">
+                    class="flex items-center justify-between px-4 py-3 rounded-lg {% if page.url == item.url %}bg-primary-red/20 text-accent-red{% else %}text-gray-400 hover:text-white hover:bg-primary-red/10{% endif %} transition-all duration-300 min-w-0">
                         <div class="flex items-center gap-3 min-w-0">
                             {% if item.icon %}<i class="bi bi-{{ item.icon }} flex-shrink-0"></i>{% endif %}
                             <span class="font-medium truncate">{{ item.title }}</span>
@@ -181,90 +164,84 @@
                 </div>
                 {% endfor %}
             </div>
-        </div>
+        </div>  
     </div>
 </header>
-
-<style>
-    body {
-        overflow-x: hidden;
-        width: 100%;
-    }
-    
-    header {
-        backdrop-filter: blur(8px);
-    }
-    
-    .mobile-submenu-content {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
-    }
-    
-    .mobile-submenu-content:not(.hidden) {
-        max-height: 500px;
-    }
-    
-    .mobile-submenu-toggle .bi-chevron-right {
-        transition: transform 0.3s ease;
-    }
-    
-    .mobile-submenu-toggle.active .bi-chevron-right {
-        transform: rotate(90deg);
-    }
-    
-    @media (max-width: 1080) {
-        .hidden.md\:flex .space-x-0\.5 > * + * {
-            margin-left: 0.125rem;
-        }
-        
-        .hidden.md\:flex a {
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
-        }
-    }
-    
-    @media (max-width: 640px) {
-        header {
-            top: 2px;
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-        
-        header > div {
-            border-radius: 0.75rem;
-        }
-        
-        nav .container > div {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-        
-        #mobile-menu {
-            border-radius: 0 0 0.75rem 0.75rem;
-        }
-    }
-    
-    @media (min-width: 641px) and (max-width: 768px) {
-        header {
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-        }
-    }
-    
-    @media (min-width: 769px) {
-        header {
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
-    }
-</style>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+        
+        const desktopToggleButtons = document.querySelectorAll('.desktop-submenu-toggle');
+        
+        desktopToggleButtons.forEach(button => {
+            const group = button.closest('.group');
+            const submenu = group.querySelector('div[class*="absolute"]');
+            
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+                
+                document.querySelectorAll('.hidden.md\\:flex .group div[class*="absolute"]').forEach(menu => {
+                    if (menu !== submenu) {
+                        menu.classList.remove('opacity-100', 'visible');
+                        menu.classList.add('opacity-0', 'invisible');
+                    }
+                });
+                
+                if (submenu.classList.contains('opacity-0') || submenu.classList.contains('invisible')) {
+                    submenu.classList.remove('opacity-0', 'invisible');
+                    submenu.classList.add('opacity-100', 'visible');
+                } else {
+                    submenu.classList.remove('opacity-100', 'visible');
+                    submenu.classList.add('opacity-0', 'invisible');
+                }
+            });
+        });
+        
+        if (window.innerWidth >= 1024) {
+            document.querySelectorAll('.group').forEach(group => {
+                const submenu = group.querySelector('div[class*="absolute"]');
+                if (!submenu) return;
+                
+                group.addEventListener('mouseenter', function() {
+                    submenu.classList.remove('opacity-0', 'invisible');
+                    submenu.classList.add('opacity-100', 'visible');
+                });
+                
+                group.addEventListener('mouseleave', function() {
+                    submenu.classList.remove('opacity-100', 'visible');
+                    submenu.classList.add('opacity-0', 'invisible');
+                });
+            });
+        }
+        
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.desktop-submenu-toggle') && !e.target.closest('.group div[class*="absolute"]')) {
+                document.querySelectorAll('.hidden.md\\:flex .group div[class*="absolute"]').forEach(menu => {
+                    menu.classList.remove('opacity-100', 'visible');
+                    menu.classList.add('opacity-0', 'invisible');
+                });
+            }
+            
+            if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+                mobileMenu.classList.add('hidden');
+                mobileMenuIcon.classList.remove('bi-x');
+                mobileMenuIcon.classList.add('bi-list');
+                document.body.style.overflow = '';
+                
+                document.querySelectorAll('.mobile-submenu-content').forEach(content => {
+                    content.classList.add('hidden');
+                    content.style.maxHeight = '0';
+                });
+                
+                document.querySelectorAll('.mobile-submenu-toggle').forEach(toggleBtn => {
+                    toggleBtn.classList.remove('active');
+                });
+            }
+        });
         
         mobileMenuButton.addEventListener('click', function(e) {
             e.stopPropagation();
@@ -288,6 +265,7 @@
                 document.body.style.overflow = '';
             });
         });
+
         
         const submenuToggles = document.querySelectorAll('.mobile-submenu-toggle');
         submenuToggles.forEach(toggle => {
@@ -313,25 +291,29 @@
             });
         });
         
-        document.addEventListener('click', function(event) {
-            if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
-                mobileMenu.classList.add('hidden');
-                mobileMenuIcon.classList.remove('bi-x');
-                mobileMenuIcon.classList.add('bi-list');
-                document.body.style.overflow = '';
-                
-                document.querySelectorAll('.mobile-submenu-content').forEach(content => {
-                    content.classList.add('hidden');
-                    content.style.maxHeight = '0';
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 1024) {
+                document.querySelectorAll('.group').forEach(group => {
+                    const submenu = group.querySelector('div[class*="absolute"]');
+                    if (!submenu) return;
+                    
+                    group.addEventListener('mouseenter', function() {
+                        submenu.classList.remove('opacity-0', 'invisible');
+                        submenu.classList.add('opacity-100', 'visible');
+                    });
+                    
+                    group.addEventListener('mouseleave', function() {
+                        submenu.classList.remove('opacity-100', 'visible');
+                        submenu.classList.add('opacity-0', 'invisible');
+                    });
                 });
-                
-                document.querySelectorAll('.mobile-submenu-toggle').forEach(toggleBtn => {
-                    toggleBtn.classList.remove('active');
+            } else {
+                document.querySelectorAll('.group').forEach(group => {
+                    group.removeEventListener('mouseenter', () => {});
+                    group.removeEventListener('mouseleave', () => {});
                 });
             }
-        });
-        
-        window.addEventListener('resize', function() {
+            
             if (window.innerWidth >= 768) {
                 mobileMenu.classList.add('hidden');
                 mobileMenuIcon.classList.remove('bi-x');

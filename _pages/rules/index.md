@@ -7,7 +7,7 @@ permalink: /rules/
 <div class="max-w-4xl mx-auto">
   <div class="flex items-center gap-3 mb-4">
     <i class="bi bi-journal-bookmark-fill text-2xl text-accent-red"></i>
-    <h2 class="text-xl md:text-2xl font-semibold text-white">Разделы правил:</h2>
+    <h1 class="text-xl md:text-2xl font-semibold text-white">Разделы правил:</h1>
   </div>
 
   <div class="space-y-6">

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Фракция
+title: Росгвардия
 parent: Фракции и Семьи
 permalink: /factions/rosgvardia/
 ---

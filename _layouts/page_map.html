@@ -1,0 +1,59 @@
+---
+layout: default
+---
+
+{% if page.layout == 'page_map' %}
+<div class="internal-content-background my-4"> <!-- TODO: DELETE THIS LINE AFTER TESTING -->
+  <div class="map-page-container">
+{% else %}
+<div class="internal-content-background my-8">
+  <div class="internal-content-container">
+{% endif %}
+    
+    <nav class="breadcrumb-nav" aria-label="Навигация">
+      <ol>
+        <li>
+          <a href="{{ '/' | relative_url }}">Главная</a>
+        </li>
+        <li class="breadcrumb-separator">/</li>
+        {% if page.parent %}
+        <li>
+          <a href="{% if page.parent == 'Правила проекта' %}{{ '/rules/' | relative_url }}{% elsif page.parent == 'Законодательство' %}{{ '/laws/' | relative_url }}{% elsif page.parent == 'Фракции и Семьи' %}{{ '/factions/' | relative_url }}{% else %}#{% endif %}">
+            {{ page.parent }}
+          </a>
+        </li>
+        <li class="breadcrumb-separator">/</li>
+        {% endif %}
+        <li class="breadcrumb-current">{{ page.title }}</li>
+      </ol>
+    </nav>
+
+    <header class="page-header">
+      <h1 class="page-title">{{ page.title }}</h1>
+      {% if page.description %}
+      <p class="page-description">{{ page.description }}</p>
+      {% endif %}
+    </header>
+
+    <div class="prose-content">
+      {{ content }}
+    </div>
+
+    <div class="page-footer-nav">
+      <div class="footer-nav-links">
+        <a href="{{ '/' | relative_url }}" class="footer-nav-link">
+          <i class="bi bi-arrow-left"></i>
+          На главную
+        </a>
+        {% if page.parent %}
+        <a href="{% if page.parent == 'Правила проекта' %}{{ '/rules/' | relative_url }}{% elsif page.parent == 'Законодательство' %}{{ '/laws/' | relative_url }}{% elsif page.parent == 'Фракции и Семьи' %}{{ '/factions/' | relative_url }}{% else %}#{% endif %}" 
+           class="footer-nav-link">
+          К списку разделов
+          <i class="bi bi-arrow-right"></i>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Фракция
+title: Волговские
 parent: Фракции и Семьи
 permalink: /factions/volgovskie/
 ---

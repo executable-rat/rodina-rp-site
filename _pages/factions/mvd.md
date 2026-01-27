@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Фракция
+title: МВД
 parent: Фракции и Семьи
 permalink: /factions/mvd/
 ---

@@ -6,10 +6,40 @@
 <body class="bg-dark-bg text-gray-100 min-h-screen flex flex-col">
     {% include header.html %}
     
-    <main class="flex-grow container mx-auto px-4 py-8 max-w-6xl">
+    <main class="flex-grow container mx-auto px-4 max-w-6xl">
         {{ content }}
     </main>
     
     {% include footer.html %}
+    
+    <button id="back-to-top" class="back-to-top-btn" aria-label="Вернуться наверх">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            function toggleBackToTopButton() {
+                if (window.scrollY > window.innerHeight) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            }
+            
+            function scrollToTop() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+            
+            window.addEventListener('scroll', toggleBackToTopButton);
+            backToTopButton.addEventListener('click', scrollToTop);
+            
+            toggleBackToTopButton();
+        });
+    </script>
 </body>
 </html>

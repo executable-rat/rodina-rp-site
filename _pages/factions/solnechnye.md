@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Фракция
+title: Солнечные
 parent: Фракции и Семьи
 permalink: /factions/solnechnye/
 ---

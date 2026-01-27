@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Фракция
+title: Министерство здравохранения
 parent: Фракции и Семьи
 permalink: /factions/health/
 ---
