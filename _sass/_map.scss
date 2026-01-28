@@ -223,6 +223,7 @@
 .leaflet-container {
     background : #1a0a0a;
     font-family: inherit;
+    font-display: swap;
 }
 
 .leaflet-control-attribution {
@@ -321,6 +322,7 @@
     padding        : 0.75rem 1rem;
     color          : white;
     font-family    : 'Courier New', monospace;
+    font-display: swap;
     font-size      : 0.9rem;
     backdrop-filter: blur(10px);
     min-width      : 250px;
@@ -346,6 +348,7 @@
     border-radius: 0.25rem;
     margin       : 0.25rem 0;
     font-family  : 'Courier New', monospace;
+    font-display: swap;
     word-break   : break-all;
 }
 
