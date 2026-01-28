@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru" class="scroll-smooth">
-<head>
-    <meta name="google-site-verification" content="oszP5Xa_6DV9jyvvykj0HuRCf_1YqwxqkkKyYY3MSwg" />
-    {% include head.html %}
-</head>
+    <head>
+        <meta name="google-site-verification"
+            content="oszP5Xa_6DV9jyvvykj0HuRCf_1YqwxqkkKyYY3MSwg" />
+        {% include head.html %}
+    </head>
 
-<script>
+    <script>
 document.addEventListener('DOMContentLoaded', function() {
   const specificImages = [
     ...document.querySelectorAll('.russian-realities-image-container img[loading="lazy"]'),
@@ -79,20 +80,21 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<body class="bg-dark-bg text-gray-100 min-h-screen flex flex-col">
-    {% include header.html %}
-    
-    <main class="flex-grow container mx-auto px-4 max-w-6xl">
-        {{ content }}
-    </main>
-    
-    {% include footer.html %}
-    
-    <button id="back-to-top" class="back-to-top-btn" aria-label="Вернуться наверх">
-        <i class="bi bi-arrow-up"></i>
-    </button>
+    <body class="bg-dark-bg text-gray-100 min-h-screen flex flex-col">
+        {% include header.html %}
 
-    <script>
+        <main class="flex-grow container mx-auto px-4 max-w-6xl">
+            {{ content }}
+        </main>
+
+        {% include footer.html %}
+
+        <button id="back-to-top" class="back-to-top-btn"
+            aria-label="Вернуться наверх">
+            <i class="bi bi-arrow-up"></i>
+        </button>
+
+        <script>
         document.addEventListener('DOMContentLoaded', function() {
             const backToTopButton = document.getElementById('back-to-top');
             
@@ -117,5 +119,5 @@ document.addEventListener('DOMContentLoaded', function() {
             toggleBackToTopButton();
         });
     </script>
-</body>
+    </body>
 </html>

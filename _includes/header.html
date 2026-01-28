@@ -1,68 +1,84 @@
 <header class="fixed top-4 z-50 w-full px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8">
-    <div class="bg-gradient-to-r from-primary-dark to-dark-bg border border-primary-red/30 rounded-xl backdrop-blur-md bg-opacity-80 shadow-2xl">
+    <div
+        class="bg-gradient-to-r from-primary-dark to-dark-bg border border-primary-red/30 rounded-xl backdrop-blur-md bg-opacity-80 shadow-2xl">
         <nav class="container mx-auto max-w-full relative">
-            <div class="flex items-center justify-between h-16 min-w-0 px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8">
+            <div
+                class="flex items-center justify-between h-16 min-w-0 px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8">
                 <div class="flex-shrink-0 mr-3 sm:mr-4 md:mr-5 lg:mr-6 xl:mr-8">
-                    <a href="{{ '/' | relative_url }}" class="text-base sm:text-lg md:text-xl lg:text-2xl font-bold tracking-tight hover:opacity-90 transition-opacity duration-300 block whitespace-nowrap">
+                    <a href="{{ '/' | relative_url }}"
+                        class="text-base sm:text-lg md:text-xl lg:text-2xl font-bold tracking-tight hover:opacity-90 transition-opacity duration-300 block whitespace-nowrap">
                         <span class="text-white">RODINA</span>
                         <span class="text-primary-red"> RP</span>
                     </a>
                 </div>
 
-                <div class="hidden md:flex items-center min-w-0 flex-grow justify-end max-w-full">
-                    <div class="flex items-center space-x-0.5 sm:space-x-1 md:space-x-1.5 lg:space-x-2 min-w-0 max-w-full">
-                        {% assign first_item = site.data.navigation.main | first %}
+                <div
+                    class="hidden md:flex items-center min-w-0 flex-grow justify-end max-w-full">
+                    <div
+                        class="flex items-center space-x-0.5 sm:space-x-1 md:space-x-1.5 lg:space-x-2 min-w-0 max-w-full">
+                        {% assign first_item = site.data.navigation.main | first
+                        %}
                         <div class="relative group flex-shrink-0">
-                            <a href="{{ first_item.url | relative_url }}" 
-                               class="flex items-center gap-1 sm:gap-1.5 md:gap-2 px-1.5 sm:px-2 md:px-2.5 py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap
+                            <a href="{{ first_item.url | relative_url }}"
+                                class="flex items-center gap-1 sm:gap-1.5 md:gap-2 px-1.5 sm:px-2 md:px-2.5 py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap
                                       {% if page.url == first_item.url %}
                                       bg-primary-red/20 text-accent-red
                                       {% else %}
                                       text-gray-400 hover:text-white hover:bg-primary-red/10
                                       {% endif %}">
                                 {% if first_item.icon %}
-                                <i class="bi bi-{{ first_item.icon }} text-xs sm:text-sm md:text-base flex-shrink-0"></i>
+                                <i
+                                    class="bi bi-{{ first_item.icon }} text-xs sm:text-sm md:text-base flex-shrink-0"></i>
                                 {% endif %}
-                                <span class="truncate lg:inline hidden">{{ first_item.title }}</span>
+                                <span class="truncate lg:inline hidden">{{
+                                    first_item.title }}</span>
                             </a>
                         </div>
-                        
-                        <div class="flex items-center gap-0.5 sm:gap-1 md:gap-1.5 flex-shrink-0">
-                            <a href="https://rodinaroleplay.gamestores.app/" 
-                               target="_blank"
-                               class="flex items-center gap-1 sm:gap-1.5 md:gap-2 px-1.5 sm:px-2 md:px-2.5 py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap
+
+                        <div
+                            class="flex items-center gap-0.5 sm:gap-1 md:gap-1.5 flex-shrink-0">
+                            <a href="https://rodinaroleplay.gamestores.app/"
+                                target="_blank"
+                                class="flex items-center gap-1 sm:gap-1.5 md:gap-2 px-1.5 sm:px-2 md:px-2.5 py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap
                                       text-gray-400 hover:text-white hover:bg-primary-red/10">
-                                <i class="bi bi-heart-fill text-xs sm:text-sm md:text-base flex-shrink-0"></i>
-                                <span class="truncate lg:inline hidden">Донат</span>
+                                <i
+                                    class="bi bi-heart-fill text-xs sm:text-sm md:text-base flex-shrink-0"></i>
+                                <span
+                                    class="truncate lg:inline hidden">Донат</span>
                             </a>
                         </div>
-                        
+
                         {% for item in site.data.navigation.main offset:1 %}
                         <div class="relative group flex-shrink-0">
                             <div class="flex items-center">
-                                <a href="{{ item.url | relative_url }}" 
-                                class="flex items-center gap-1 sm:gap-1.5 md:gap-2 px-1.5 sm:px-2 md:px-2.5 py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap
+                                <a href="{{ item.url | relative_url }}"
+                                    class="flex items-center gap-1 sm:gap-1.5 md:gap-2 px-1.5 sm:px-2 md:px-2.5 py-2 text-xs sm:text-sm font-medium rounded-lg transition-all duration-300 whitespace-nowrap
                                         {% if page.url == item.url %}
                                         bg-primary-red/20 text-accent-red
                                         {% else %}
                                         text-gray-400 hover:text-white hover:bg-primary-red/10
                                         {% endif %}">
                                     {% if item.icon %}
-                                    <i class="bi bi-{{ item.icon }} text-xs sm:text-sm md:text-base flex-shrink-0"></i>
+                                    <i
+                                        class="bi bi-{{ item.icon }} text-xs sm:text-sm md:text-base flex-shrink-0"></i>
                                     {% endif %}
-                                    <span class="truncate lg:inline hidden">{{ item.title }}</span>
+                                    <span class="truncate lg:inline hidden">{{
+                                        item.title }}</span>
                                 </a>
-                                
+
                                 {% if item.subitems %}
-                                <button class="desktop-submenu-toggle p-1 text-gray-400 hover:text-white transition-colors duration-300"
-                                        aria-label="Открыть подменю">
-                                    <i class="bi bi-chevron-down text-xs flex-shrink-0"></i>
+                                <button
+                                    class="desktop-submenu-toggle p-1 text-gray-400 hover:text-white transition-colors duration-300"
+                                    aria-label="Открыть подменю">
+                                    <i
+                                        class="bi bi-chevron-down text-xs flex-shrink-0"></i>
                                 </button>
                                 {% endif %}
                             </div>
-                            
+
                             {% if item.subitems %}
-                            <div class="absolute top-full mt-1 min-w-[280px] md:min-w-[320px] bg-dark-bg/95 backdrop-blur-md rounded-xl shadow-2xl 
+                            <div
+                                class="absolute top-full mt-1 min-w-[280px] md:min-w-[320px] bg-dark-bg/95 backdrop-blur-md rounded-xl shadow-2xl 
                                         opacity-0 invisible border border-primary-red/30 z-[9999] overflow-hidden
                                         max-w-[calc(100vw-2rem)] 
                                         right-0 
@@ -70,14 +86,18 @@
                                         {% if forloop.last %}lg:left-auto lg:right-0{% endif %}">
                                 <div class="p-3">
                                     {% for subitem in item.subitems %}
-                                    <a href="{{ subitem.url | relative_url }}" 
-                                    class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-red/20 
+                                    <a href="{{ subitem.url | relative_url }}"
+                                        class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-red/20 
                                             transition-all duration-300 group/item min-w-0">
-                                        <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary-red/10 flex-shrink-0 min-w-[2rem]">
-                                            <i class="bi bi-{{ subitem.icon }} text-primary-red flex-shrink-0"></i>
+                                        <div
+                                            class="w-8 h-8 flex items-center justify-center rounded-lg bg-primary-red/10 flex-shrink-0 min-w-[2rem]">
+                                            <i
+                                                class="bi bi-{{ subitem.icon }} text-primary-red flex-shrink-0"></i>
                                         </div>
                                         <div class="min-w-0 flex-1">
-                                            <div class="text-white font-medium truncate">{{ subitem.title }}</div>
+                                            <div
+                                                class="text-white font-medium truncate">{{
+                                                subitem.title }}</div>
                                         </div>
                                     </a>
                                     {% endfor %}
@@ -89,38 +109,46 @@
                     </div>
                 </div>
 
-                <div class="flex md:hidden items-center gap-1.5 sm:gap-2 flex-shrink-0">
-                    <a href="https://rodinaroleplay.gamestores.app/" 
-                       target="_blank"
-                       class="p-1.5 sm:p-2 text-gray-400 hover:text-white hover:bg-primary-red/10 rounded-lg transition-all duration-300">
+                <div
+                    class="flex md:hidden items-center gap-1.5 sm:gap-2 flex-shrink-0">
+                    <a href="https://rodinaroleplay.gamestores.app/"
+                        target="_blank"
+                        class="p-1.5 sm:p-2 text-gray-400 hover:text-white hover:bg-primary-red/10 rounded-lg transition-all duration-300">
                         <i class="bi bi-heart-fill text-base sm:text-lg"></i>
                     </a>
-                    
-                    <button id="mobile-menu-button" class="p-1.5 sm:p-2 text-gray-400 hover:text-white hover:bg-primary-red/10 rounded-lg transition-all duration-300">
-                        <i id="mobile-menu-icon" class="bi bi-list text-lg sm:text-xl"></i>
+
+                    <button id="mobile-menu-button"
+                        class="p-1.5 sm:p-2 text-gray-400 hover:text-white hover:bg-primary-red/10 rounded-lg transition-all duration-300">
+                        <i id="mobile-menu-icon"
+                            class="bi bi-list text-lg sm:text-xl"></i>
                     </button>
                 </div>
             </div>
         </nav>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-dark-bg/95 backdrop-blur-md border-t border-primary-red/30 transition-all duration-300 ease-in-out w-full absolute top-full left-0 right-0 z-[9999] shadow-2xl rounded-xl">
-            <div class="container mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 py-4 max-w-full">
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-dark-bg/95 backdrop-blur-md border-t border-primary-red/30 transition-all duration-300 ease-in-out w-full absolute top-full left-0 right-0 z-[9999] shadow-2xl rounded-xl">
+            <div
+                class="container mx-auto px-3 sm:px-4 md:px-5 lg:px-6 xl:px-8 py-4 max-w-full">
                 {% assign first_item = site.data.navigation.main | first %}
                 <div class="mb-2">
-                    <a href="{{ first_item.url | relative_url }}" 
-                    class="flex items-center justify-between px-4 py-3 rounded-lg {% if page.url == first_item.url %}bg-primary-red/20 text-accent-red{% else %}text-gray-400 hover:text-white hover:bg-primary-red/10{% endif %} transition-all duration-300">
+                    <a href="{{ first_item.url | relative_url }}"
+                        class="flex items-center justify-between px-4 py-3 rounded-lg {% if page.url == first_item.url %}bg-primary-red/20 text-accent-red{% else %}text-gray-400 hover:text-white hover:bg-primary-red/10{% endif %} transition-all duration-300">
                         <div class="flex items-center gap-3 min-w-0">
-                            {% if first_item.icon %}<i class="bi bi-{{ first_item.icon }} flex-shrink-0"></i>{% endif %}
-                            <span class="font-medium truncate">{{ first_item.title }}</span>
+                            {% if first_item.icon %}<i
+                                class="bi bi-{{ first_item.icon }} flex-shrink-0"></i>{%
+                            endif %}
+                            <span class="font-medium truncate">{{
+                                first_item.title }}</span>
                         </div>
                     </a>
                 </div>
-                
+
                 <div class="mb-4">
                     <div class="mb-2">
-                        <a href="https://rodinaroleplay.gamestores.app/" 
-                        target="_blank"
-                        class="flex items-center justify-between px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-primary-red/10 transition-all duration-300">
+                        <a href="https://rodinaroleplay.gamestores.app/"
+                            target="_blank"
+                            class="flex items-center justify-between px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-primary-red/10 transition-all duration-300">
                             <div class="flex items-center gap-3 min-w-0">
                                 <i class="bi bi-heart-fill flex-shrink-0"></i>
                                 <span class="font-medium truncate">Донат</span>
@@ -128,43 +156,55 @@
                         </a>
                     </div>
                 </div>
-                
+
                 {% for item in site.data.navigation.main offset:1 %}
                 <div class="mb-2">
                     {% if item.subitems %}
                     <div class="mobile-submenu">
-                        <button class="mobile-submenu-toggle flex items-center justify-between w-full px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-primary-red/10 transition-all duration-300 min-w-0">
+                        <button
+                            class="mobile-submenu-toggle flex items-center justify-between w-full px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-primary-red/10 transition-all duration-300 min-w-0">
                             <div class="flex items-center gap-3 min-w-0">
-                                {% if item.icon %}<i class="bi bi-{{ item.icon }} flex-shrink-0"></i>{% endif %}
-                                <span class="font-medium truncate">{{ item.title }}</span>
+                                {% if item.icon %}<i
+                                    class="bi bi-{{ item.icon }} flex-shrink-0"></i>{%
+                                endif %}
+                                <span class="font-medium truncate">{{ item.title
+                                    }}</span>
                             </div>
-                            <i class="bi bi-chevron-right transition-transform duration-300 flex-shrink-0"></i>
+                            <i
+                                class="bi bi-chevron-right transition-transform duration-300 flex-shrink-0"></i>
                         </button>
-                        <div class="mobile-submenu-content hidden mt-1 ml-4 pl-4 border-l border-primary-red/20">
+                        <div
+                            class="mobile-submenu-content hidden mt-1 ml-4 pl-4 border-l border-primary-red/20">
                             {% for subitem in item.subitems %}
-                            <a href="{{ subitem.url | relative_url }}" 
-                            class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-primary-red/10 transition-all duration-300 min-w-0">
-                                <div class="w-6 h-6 flex items-center justify-center rounded-lg bg-primary-red/10 flex-shrink-0 min-w-[1.5rem]">
-                                    <i class="bi bi-{{ subitem.icon }} text-primary-red text-sm flex-shrink-0"></i>
+                            <a href="{{ subitem.url | relative_url }}"
+                                class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-400 hover:text-white hover:bg-primary-red/10 transition-all duration-300 min-w-0">
+                                <div
+                                    class="w-6 h-6 flex items-center justify-center rounded-lg bg-primary-red/10 flex-shrink-0 min-w-[1.5rem]">
+                                    <i
+                                        class="bi bi-{{ subitem.icon }} text-primary-red text-sm flex-shrink-0"></i>
                                 </div>
-                                <span class="text-sm truncate">{{ subitem.title }}</span>
+                                <span class="text-sm truncate">{{ subitem.title
+                                    }}</span>
                             </a>
                             {% endfor %}
                         </div>
                     </div>
                     {% else %}
-                    <a href="{{ item.url | relative_url }}" 
-                    class="flex items-center justify-between px-4 py-3 rounded-lg {% if page.url == item.url %}bg-primary-red/20 text-accent-red{% else %}text-gray-400 hover:text-white hover:bg-primary-red/10{% endif %} transition-all duration-300 min-w-0">
+                    <a href="{{ item.url | relative_url }}"
+                        class="flex items-center justify-between px-4 py-3 rounded-lg {% if page.url == item.url %}bg-primary-red/20 text-accent-red{% else %}text-gray-400 hover:text-white hover:bg-primary-red/10{% endif %} transition-all duration-300 min-w-0">
                         <div class="flex items-center gap-3 min-w-0">
-                            {% if item.icon %}<i class="bi bi-{{ item.icon }} flex-shrink-0"></i>{% endif %}
-                            <span class="font-medium truncate">{{ item.title }}</span>
+                            {% if item.icon %}<i
+                                class="bi bi-{{ item.icon }} flex-shrink-0"></i>{%
+                            endif %}
+                            <span class="font-medium truncate">{{ item.title
+                                }}</span>
                         </div>
                     </a>
                     {% endif %}
                 </div>
                 {% endfor %}
             </div>
-        </div>  
+        </div>
     </div>
 </header>
 

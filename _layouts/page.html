@@ -4,7 +4,7 @@ layout: default
 
 <div class="internal-content-background my-8">
   <div class="internal-content-container">
-    
+
     <nav class="breadcrumb-nav" aria-label="Навигация">
       <ol>
         <li>
@@ -13,7 +13,8 @@ layout: default
         <li class="breadcrumb-separator">/</li>
         {% if page.parent %}
         <li>
-          <a href="{% if page.parent == 'Правила проекта' %}{{ '/rules/' | relative_url }}{% elsif page.parent == 'Законодательство' %}{{ '/laws/' | relative_url }}{% elsif page.parent == 'Фракции и Семьи' %}{{ '/factions/' | relative_url }}{% else %}#{% endif %}">
+          <a
+            href="{% if page.parent == 'Правила проекта' %}{{ '/rules/' | relative_url }}{% elsif page.parent == 'Законодательство' %}{{ '/laws/' | relative_url }}{% elsif page.parent == 'Фракции и Семьи' %}{{ '/factions/' | relative_url }}{% else %}#{% endif %}">
             {{ page.parent }}
           </a>
         </li>
@@ -41,8 +42,9 @@ layout: default
           На главную
         </a>
         {% if page.parent %}
-        <a href="{% if page.parent == 'Правила проекта' %}{{ '/rules/' | relative_url }}{% elsif page.parent == 'Законодательство' %}{{ '/laws/' | relative_url }}{% elsif page.parent == 'Фракции и Семьи' %}{{ '/factions/' | relative_url }}{% else %}#{% endif %}" 
-           class="footer-nav-link">
+        <a
+          href="{% if page.parent == 'Правила проекта' %}{{ '/rules/' | relative_url }}{% elsif page.parent == 'Законодательство' %}{{ '/laws/' | relative_url }}{% elsif page.parent == 'Фракции и Семьи' %}{{ '/factions/' | relative_url }}{% else %}#{% endif %}"
+          class="footer-nav-link">
           К списку разделов
           <i class="bi bi-arrow-right"></i>
         </a>
